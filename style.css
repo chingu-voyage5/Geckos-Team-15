@@ -1,0 +1,20 @@
+/* use REM for sizing where 1rem =10px */
+/* Included two fonts we can use for now via google fonts
+font-family: 'Cutive Mono', monospace;
+font-family: 'Roboto', sans-serif; */
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+}
