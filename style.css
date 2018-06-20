@@ -13,8 +13,88 @@ font-family: 'Roboto', sans-serif; */
 
 html {
     font-size: 62.5%;
+    
 }
 
 body {
     box-sizing: border-box;
+    color: white;
+    
 }
+
+.landing-body {
+    height: 100vh;
+    /* background-image: url(background-images/hikersbay.jpg); */
+    background-image: url('https://source.unsplash.com/collection/2251820/1600x900/');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.date-time-display {
+    padding: 1.5rem;
+    display: inline-block;
+    margin: 1.5rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    text-align: center;
+    /* background: rgba(0, 0, 0, 0.164); */
+}
+
+.date {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.459);
+}
+
+.time {
+    font-size: 8.3rem;
+    font-family: 'Cutive Mono', monospace;
+    font-weight: normal;
+    text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.459);
+}
+
+.feature-navigation {
+    color: white;
+    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    float: right;
+    padding: 1.5rem;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(0%, -50%);
+    backface-visibility: hidden;
+    
+}
+
+.feature-list {
+    list-style-type: none;
+    font-size: 3rem;
+}
+
+li {
+    line-height: 1;
+    text-align: center;
+    margin: 2rem 0rem;
+    padding: .6rem .75rem;
+    
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+   
+}
+
+
+li:hover {
+    border-radius: 10%;
+    /* font-size: 5rem; */
+    transform: scale(1.5, 1.5);
+    backface-visibility: hidden;
+}
+
+
+
