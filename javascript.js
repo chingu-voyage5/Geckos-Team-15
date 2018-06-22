@@ -1,4 +1,4 @@
-
+window.onload = playMusic;
 function getDateTime() {
 
     var currentDate = new Date();
@@ -38,4 +38,28 @@ function getDateTime() {
 
 };
 
+
+
+
+var playlist = [];
+var playing =false;
+function playAudio(){
+  
+    var song = document.getElementById("myAudio");
+    if(playing){
+        playing = false;
+        song.pause();
+        
+    }else{
+        playing =true;
+        song.play();
+    }
+    
+
+}
+
 getDateTime();
+
+
+
+
