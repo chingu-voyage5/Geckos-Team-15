@@ -72,15 +72,11 @@ var playing =false;
 var currentSong=0;
 var song = document.getElementById(playlist[currentSong].file_name);
 var musicClicked = false;
-var songTitle = playlist[currentSong].name;
+var title = playlist[currentSong].name;
 
 function playAudio(){
     
-    //TODO- this is Temporary
-    alert(songTitle);
-    //this will change later
-    
-    
+    updateTitle();
     if(playing){
 
         playing = false;
@@ -123,7 +119,7 @@ function nextPreHelper(){
     playing = false;
     song.currentTime = 0;
     song = document.getElementById(playlist[currentSong].file_name);
-    songTitle = playlist[currentSong].name;
+    title = playlist[currentSong].name;
     playAudio();
 };
 
@@ -135,8 +131,9 @@ function slideMusic(){
         musicClicked = true;
         document.getElementById("player").style.display= "none";
     }
+};
 
-    
+function updateTitle(){
+    document.getElementById("songTitle").innerHTML = title;
 }
-
 

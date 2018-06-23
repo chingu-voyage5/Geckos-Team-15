@@ -96,24 +96,28 @@ li:hover {
     backface-visibility: hidden;
 }
 #player{ 
-    padding:15px;
-    background-color: black;
+    padding: 1rem 0rem 1rem 1rem;
+    background-color: rgba(187, 187, 187, 0.26);
     position: absolute;
     bottom: 3rem;
     right: 1rem;
     z-index: 999;
-    opacity: .7;
+    
 } 
 
 
 
+#buttonContainer{
+    display: inline-block;
+    padding-right: 1rem;
+    
 
-#play,#next, #pre{
-    background-color:black;
-    margin-left: 10px;
-  
-
+    
 }
+#play,#next, #pre{
+    background-color:rgb(0, 0, 0);
+}
+
 #pre{
     -moz-transform: scaleX(-1);
         -o-transform: scaleX(-1);
@@ -121,4 +125,12 @@ li:hover {
         transform: scaleX(-1);
         filter: FlipH;
         -ms-filter: "FlipH";
+        
+}
+#songTitle{
+    text-align: center;
+    padding-bottom: .5rem;
+    background-color: rgb(175, 114, 0);
+    font-size: 1.5rem;
+    margin-right: 1rem;
 }
