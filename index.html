@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="icons/style.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+
     <title>Gekko</title>
     
     
@@ -39,7 +40,8 @@
                     <i class="icon-icon-5-cloud-sun-rain"></i>
                 </li>
                 <li>
-                    <i class="icon-icon-63-document-music"></i>
+                    <i onclick="slideMusic()" class="icon-icon-63-document-music"></i>
+                    </i>
                 </li>
                 <li>
                     <i class="icon-icon-40-clipboard-list"></i>
@@ -59,19 +61,33 @@
 
 
         <div class ="musicPlayer">
-            <audio id="myAudio">
-                <source src="Music_Files/Clair de Lune.mp3" type="audio/mp3">
-            </audio>
+            <div id="myAudio">
+                    <audio id="Clair de Lune.mp3">
+                        <source src="Music_Files/Clair de Lune.mp3" type="audio/mp3">
+                    </audio>
+                    <audio id="Chad_Crouch_-_European_Starling.mp3">
+                         <source src="Music_Files/Chad_Crouch_-_European_Starling.mp3" type="audio/mp3" >
+                    </audio>
+                    <audio id="Chad_Crouch_-_Osprey.mp3">
+                            <source src="Music_Files/Chad_Crouch_-_Osprey.mp3" type="audio/mp3" >
+                    </audio>
+                    <audio id="Chad_Crouch_-_Raven.mp3">
+                            <source src="Music_Files/Chad_Crouch_-_Raven.mp3" type="audio/mp3" >
+                    </audio>
+                    <audio id="Chad_Crouch_-_Western_Tanager.mp3">
+                            <source src="Music_Files/Chad_Crouch_-_Western_Tanager.mp3" type="audio/mp3" >
+                    </audio>
+                       
+                </div>
             <div id="player">
-                    <div id="songTitle"> song Title place holder</div>
-                        <div id="musicButtons">
-                            <button id ="pre" onclick="pre()"> <img src = "prev.png" height="90%" width="90%"/></button>
-                            <button id ="play" onclick="playAudio()"><img src="play-button.png" height="90%" width="90%"/> </button>
-                            <button id ="next" onclick="next()"> <img src = "next.png" height="90%" width="90%"/> </button>
+                 <div id="songTitle"> song Title place holder</div>
+                    <div id="musicButtons">
+                        <button id ="pre" onclick="pre()"> <img src = "prev.png" height="90%" width="90%"/></button>
+                        <button id ="play" onclick="playAudio()"><img src="play-button.png" height="90%" width="90%"/> </button>
+                        <button id ="next" onclick="next()"> <img src = "next.png" height="90%" width="90%"/> </button>
+                    </div>
+                </div>
             </div>
-
-          </div>
-        </div>
     </div>
 
     <!--FEATURE, CODED BY XYZ -->

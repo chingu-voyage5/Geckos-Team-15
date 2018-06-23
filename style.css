@@ -95,17 +95,18 @@ li:hover {
     transform: scale(1.5, 1.5);
     backface-visibility: hidden;
 }
-#player{
+#player{ 
     padding:15px;
     background-color: black;
-    border-radius: 25px;
     position: absolute;
     bottom: 3rem;
     right: 1rem;
-    
     z-index: 999;
     opacity: .7;
-}
+} 
+
+
+
 
 #play,#next, #pre{
     background-color:black;
@@ -121,4 +122,3 @@ li:hover {
         filter: FlipH;
         -ms-filter: "FlipH";
 }
-

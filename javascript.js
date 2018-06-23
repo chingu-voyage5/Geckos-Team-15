@@ -1,4 +1,4 @@
-window.onload = playMusic;
+
 function getDateTime() {
 
     var currentDate = new Date();
@@ -38,28 +38,105 @@ function getDateTime() {
 
 };
 
-
-
-
-var playlist = [];
-var playing =false;
-function playAudio(){
-  
-    var song = document.getElementById("myAudio");
-    if(playing){
-        playing = false;
-        song.pause();
-        
-    }else{
-        playing =true;
-        song.play();
-    }
-    
-
-}
-
 getDateTime();
 
 
+
+
+var playlist = [
+    {
+      name: "Clair de Lune",
+      file_name: "Clair de Lune.mp3"
+    },
+    {
+      name: "Chad Crouch - European Starling",
+      file_name: "Chad_Crouch_-_European_Starling.mp3"
+    },
+    {
+        name: "Chad Crouch - Osprey",
+        file_name: "Chad_Crouch_-_Osprey.mp3"
+      },
+      {
+          name: "Chad Crouch - Raven",
+          file_name: "Chad_Crouch_-_Raven.mp3"
+        },
+        {
+            name: "Chad Crouch - Western Tanager",
+            file_name: "Chad_Crouch_-_Western_Tanager.mp3"
+          },
+        
+  ];
+
+
+var playing =false;
+var currentSong=0;
+var song = document.getElementById(playlist[currentSong].file_name);
+var musicClicked = false;
+var songTitle = playlist[currentSong].name;
+
+function playAudio(){
+    
+    //TODO- this is Temporary
+    alert(songTitle);
+    //this will change later
+    
+    
+    if(playing){
+
+        playing = false;
+        pauseMusic();
+        
+    }else{
+        playing =true;
+        playMusic();
+    }
+    
+
+};
+
+function next(){
+    
+    currentSong++;
+    if(currentSong >4){
+        currentSong = 0;
+    }
+    nextPreHelper();
+}; 
+
+function pre(){
+    currentSong--;
+    if(currentSong < 0){
+        currentSong = 0;
+    } 
+    nextPreHelper();
+};
+
+
+function pauseMusic(){
+    song.pause();
+};
+function playMusic(){
+    song.play();
+};
+function nextPreHelper(){
+    pauseMusic();
+    playing = false;
+    song.currentTime = 0;
+    song = document.getElementById(playlist[currentSong].file_name);
+    songTitle = playlist[currentSong].name;
+    playAudio();
+};
+
+function slideMusic(){
+    if(musicClicked){
+     musicClicked= false; 
+    document.getElementById("player").style.display ="block";
+    }else{
+        musicClicked = true;
+        document.getElementById("player").style.display= "none";
+    }
+
+    
+}
 
 
