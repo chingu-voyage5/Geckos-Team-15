@@ -135,5 +135,10 @@ function slideMusic(){
 
 function updateTitle(){
     document.getElementById("songTitle").innerHTML = title;
-}
+};
 
+
+
+
+
+    

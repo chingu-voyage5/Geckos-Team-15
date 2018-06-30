@@ -19,6 +19,7 @@ html {
 body {
     box-sizing: border-box;
     color: white;
+   
     
 }
 
@@ -95,27 +96,37 @@ li:hover {
     transform: scale(1.5, 1.5);
     backface-visibility: hidden;
 }
-#player{ 
-    padding: 1rem 0rem 1rem 1rem;
-    background-color: rgba(187, 187, 187, 0.26);
+ #player{ 
+    padding: 5rem 2rem 3rem 3rem;
+    background-color: rgba(187, 187, 187, 0.5);
     position: absolute;
     bottom: 3rem;
     right: 1rem;
     z-index: 999;
+    width: 50rem;
     
-} 
+ 
+    
+}  
 
 
 
 #buttonContainer{
-    display: inline-block;
+    display: inline;
     padding-right: 1rem;
-    
-
-    
+    text-align: center; 
 }
 #play,#next, #pre{
-    background-color:rgb(0, 0, 0);
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    font-size: 5rem;
+    width: 8rem;
+    
+}
+#play:hover,#next:hover,#pre:hover{
+    background-color: rgb(0, 0, 0); 
+    color: white;
+    border-radius: 2rem;
 }
 
 #pre{
@@ -127,10 +138,19 @@ li:hover {
         -ms-filter: "FlipH";
         
 }
+
+
 #songTitle{
     text-align: center;
     padding-bottom: .5rem;
-    background-color: rgb(175, 114, 0);
+    background-color: rgb(0, 0, 0);
     font-size: 1.5rem;
     margin-right: 1rem;
+    font-size: 4rem;
+    
 }
+
+#musicButtons{
+    text-align: center;
+}
+ 
