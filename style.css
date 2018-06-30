@@ -104,6 +104,9 @@ li:hover {
     right: 1rem;
     z-index: 999;
     width: 50rem;
+    border-style: ridge;
+    border-color: skyblue;
+    border-width: 1rem;
     
  
     
@@ -115,12 +118,14 @@ li:hover {
     display: inline;
     padding-right: 1rem;
     text-align: center; 
+    
 }
 #play,#next, #pre{
     -webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
     font-size: 5rem;
     width: 8rem;
+    margin-top: 2rem;
     
 }
 #play:hover,#next:hover,#pre:hover{
@@ -128,6 +133,7 @@ li:hover {
     color: white;
     border-radius: 2rem;
 }
+
 
 #pre{
     -moz-transform: scaleX(-1);
@@ -139,7 +145,11 @@ li:hover {
         
 }
 
-
+#play:active,#next:active,#pre:active{
+    background-color: #0f0f0f;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
 #songTitle{
     text-align: center;
     padding-bottom: .5rem;
@@ -147,6 +157,7 @@ li:hover {
     font-size: 1.5rem;
     margin-right: 1rem;
     font-size: 4rem;
+    
     
 }
 
