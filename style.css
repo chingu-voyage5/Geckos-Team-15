@@ -13,7 +13,7 @@ font-family: 'Roboto', sans-serif; */
 
 html {
     font-size: 62.5%;
-    /* background-color: black; */
+    background-color: black;
 }
 
 body {
@@ -178,14 +178,26 @@ body {
 
 .feature-news {
     position: absolute;
-    /* right: 7rem; */
-    right: 0rem;
+    right: 0;
     top: 0;
+
+
     width: 30rem;
     height: 100vh;
     overflow: auto;
     
+    /* display: transparent; */
+    display: none;
+    /* transform: translateX(30rem); */
 }
+
+/* .feature-news-visible {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(0);
+    display: block;
+} */
 
 .article-info-list {
     list-style-type: none;
