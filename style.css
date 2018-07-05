@@ -112,7 +112,7 @@ body {
 
 .feature-navigation {
     color: white;
-    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.637);
     float: right;
     padding: 1.5rem;
     position: absolute;
@@ -125,7 +125,7 @@ body {
 
 .feature-list {
     list-style-type: none;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .feature-icon {
@@ -175,6 +175,23 @@ body {
 
  
 }
+
+.news-close-btn {
+    font-size: 2.5rem;
+    position: absolute;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    color: rgb(126, 145, 252);
+    background-color: rgb(6, 25, 134);
+    border-radius: 100%;
+    height: 2.4rem;
+    width: 2.4rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
 
 .feature-news {
     position: absolute;

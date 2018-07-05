@@ -77,12 +77,9 @@ getDateTime();
 
 //key 393bdf4f125f4a6298675ec35996dccd
 
-var newsIcon = document.querySelector(".icon-icon-55-document-text")
-newsIcon.addEventListener("click", getNews);
 
 function getNews() {
-    document.querySelector('.feature-news').style.display = "block";
-    // document.querySelector('.feature-news').classList.add('.feature-news-visible');
+   
 
     var url = 'https://newsapi.org/v2/top-headlines?' +
         'country=us&' +
@@ -119,17 +116,27 @@ function getNews() {
                 '</span></li></ul></a></div></li>'
             };
             
-
-            document.querySelector(".news-results").innerHTML = myLi;
-
-            
+            document.querySelector(".news-results").innerHTML = myLi; 
         });
-
 }
+
+getNews();
+
+
+var newsIcon = document.querySelector(".icon-svg142").addEventListener("click", displayNews);
 
 function displayNews() {
-
+    document.querySelector('.feature-news').style.display = "block";
+    // document.querySelector('.feature-news').classList.add('.feature-news-visible');
 }
+
+var newsCloseBtn = document.querySelector(".news-close-btn").addEventListener("click", closeNews);
+
+function closeNews() {
+    document.querySelector('.feature-news').style.display = "none";
+}
+
+
 
 // getNews();
 
