@@ -138,7 +138,11 @@ function updateTitle(){
 };
 
 
-
-
-
-    
+function plus(){
+var addMe = document.getElementById("userInput").value;
+var node = document.createElement("LI");
+var textnode = document.createTextNode(addMe);
+node.appendChild(textnode);
+document.getElementById("task").appendChild(node);
+document.getElementById("userInput").value = "";
+}
