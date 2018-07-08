@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Roboto" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="icons/style.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -36,23 +36,23 @@
         <div class="feature-navigation">
             <ul class="feature-list">
 
-                <li>
+                <li class="icon">
                     <i class="icon-icon-5-cloud-sun-rain"></i>
                 </li>
-                <li>
+                <li class="icon">
                     <i onclick="slideMusic()" class="icon-icon-63-document-music"></i>
                     </i>
                 </li>
-                <li>
+                <li class="icon">
                     <i class="icon-icon-40-clipboard-list"></i>
                 </li>
-                <li>
+                <li class="icon">
                     <i class="icon-icon-44-note-text"></i>
                 </li>
-                <li>
+                <li class="icon">
                         <i class="icon-icon-51-notebook"></i>
                     </li>
-                <li>
+                <li class="icon">
                     <i class="icon-icon-18-bookmark"></i>
                 </li>
             </ul>
@@ -61,14 +61,27 @@
         
 
 
-
+<div id="taskContainer">
+   <div id="taskTitle">
+       <h1>Tasks</h1> 
+   </div>
+   <div id="taskInput">
+    <input type="text" id="userInput">
+    <i class="fas fa-plus"></i> 
+   </div>
+   <ul id="taskList">
+       <li id="task">Gym</li>
+       <li id="task">Get food</li>
+       <li id="task">nap</li>
+       <li id="task">cook dinner</li>
+    </div>
+</div>
 
 
 
         
      
               
-
 
 
 
@@ -96,9 +109,8 @@
                        
             </div>
             <div id="player">
-                 <div id="songTitle"> song Title place holder</div>
+                 <div id="songTitle"> Welcome</div>
                     <div id="musicButtons">
-                        <!--remove button tags, add playlist of songs, change css, add transition: fade in, -->
                        <div id="buttonContainer"> <img id="pre" src = "prev.png" onclick="pre()" /></div>     
                        <div id="buttonContainer"><img src="play-button.png" id ="play" onclick="playAudio()"/></div> 
                        <div id="buttonContainer"><img src = "next.png" id ="next" onclick="next()" /></div> 

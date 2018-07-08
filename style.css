@@ -77,7 +77,7 @@ body {
     font-size: 3rem;
 }
 
-li {
+.icon {
     line-height: 1;
     text-align: center;
     margin: 2rem 0rem;
@@ -90,23 +90,21 @@ li {
 }
 
 
-li:hover {
+.icon:hover {
     border-radius: 10%;
     /* font-size: 5rem; */
     transform: scale(1.5, 1.5);
     backface-visibility: hidden;
 }
  #player{ 
-    padding: 5rem 2rem 3rem 3rem;
-    background-color: rgba(187, 187, 187, 0.5);
+    
+    background-color: rgba(187, 187, 187, 0.4);
     position: absolute;
     bottom: 3rem;
     right: 1rem;
     z-index: 999;
     width: 50rem;
-    border-style: ridge;
-    border-color: skyblue;
-    border-width: 1rem;
+    
 }  
 
 
@@ -152,11 +150,56 @@ li:hover {
     padding-bottom: .5rem;
     background-color: rgb(0, 0, 0);
     font-size: 1.5rem;
-    margin-right: 1rem;
     font-size: 4rem;
 }
 
 #musicButtons{
+    text-align: center; 
+}
+.fa-plus{
+    
+    border-style: solid;
+    border-width: .3rem;
+    padding: 1rem 2.3rem 1.5rem 2rem;
+    font-size: 2rem;
+    background-color: rgb(255, 148, 136) ;
+
+}
+#userInput{
+width: 28rem;
+height: 5rem;
+border-style: solid;
+border-width: .5rem;
+border-color: white;
+background-color:rgba(187, 187, 187, .01)
+}
+
+#taskContainer{
+    padding: 0;
+    background-color: rgba(187, 187, 187, 0.4);
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    z-index: 999;
+    width: 35rem;
+    
+}
+#taskTitle{    
+    background-color: rgb(255, 148, 136) ;
+    padding: 2rem;
     text-align: center;
 }
+
+#task{
+ cursor: pointer;
+  position: relative;
+  padding:  .5rem;
+  list-style-type: none;
+  font-size: 18px;
+  transition: 0.2s;
+  
+}
+
+ 
+
  
