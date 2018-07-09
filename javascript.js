@@ -137,17 +137,6 @@ function updateTitle(){
     document.getElementById("songTitle").innerHTML = title;
 };
 
-
-// function plus(){
-// var addMe = document.getElementById("userInput").value;
-// var node = document.createElement("li");
-// var textnode = document.createTextNode(addMe);
-// node.appendChild(textnode);
-// document.getElementById("task").appendChild(node);
-// document.getElementById("userInput").value = "";
-// }
-
-
 function plus(){
     var li = document.createElement("li");
     var inputValue = document.getElementById("userInput").value;
@@ -159,5 +148,19 @@ function plus(){
       document.getElementById("taskList").appendChild(li);
     }
     document.getElementById("userInput").value = "";
-}  
+    
+    var span = document.createElement("SPAN");
+  var txt = document.createTextNode("");
+  span.className = "fas fa-trash-alt";
+  span.appendChild(txt);
+  li.appendChild(span);
+}
 
+function complete(){
+    var x = document.getElementById("taskList");
+    if(x.style.display === "None"){
+        x.style.display = "block";
+    }else{
+        x.style.display = "none";
+    }
+}

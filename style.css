@@ -208,6 +208,11 @@ color: white;
   font-size:  3rem;
 }
 
- 
+.fa-trash-alt {
+    position: absolute;
+    right: 0;
+    font-size: 3rem;
+  }
 
- 
+
+
