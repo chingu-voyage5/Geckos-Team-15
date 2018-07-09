@@ -9,11 +9,12 @@
     <link rel="stylesheet" type="text/css" href="icons/style2.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Gekko</title>
-
+ <!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
 </head>
 
 <body>
 <script>document.body.className += 'fade-out';</script>
+
 
 
     <!--LANDING PAGE, CODED BY NATALIE -->
@@ -29,14 +30,14 @@
 
         <!-- icon navigation bar -->
 
+
         <div class="feature-navigation">
             <ul class="feature-list">
-
                 <li class="feature-icon">
                     <i class="icon-svg602"></i>
                 </li>
                 <li class="feature-icon">
-                    <i class="icon-svg1322"></i>
+                    <i onclick="slideMusic()" class="icon-svg1322"></i>
                 </li>
                 <li class="feature-icon">
                     <i class="icon-svg372"></i>
@@ -101,11 +102,40 @@
 
 
 
+<!--MUSIC, CODED BY TYRE -->
 
 
-
-
-
+        <div class ="musicPlayer">
+            <div id="myAudio">
+                    <audio id="Clair de Lune.mp3">
+                        <source src="Music_Files/Clair de Lune.mp3" type="audio/mp3">
+                    </audio>
+                    <audio id="Chad_Crouch_-_European_Starling.mp3">
+                         <source src="Music_Files/Chad_Crouch_-_European_Starling.mp3" type="audio/mp3" >
+                    </audio>
+                    <audio id="Chad_Crouch_-_Osprey.mp3">
+                            <source src="Music_Files/Chad_Crouch_-_Osprey.mp3" type="audio/mp3" >
+                    </audio>
+                    <audio id="Chad_Crouch_-_Raven.mp3">
+                            <source src="Music_Files/Chad_Crouch_-_Raven.mp3" type="audio/mp3" >
+                    </audio>
+                    <audio id="Chad_Crouch_-_Western_Tanager.mp3">
+                            <source src="Music_Files/Chad_Crouch_-_Western_Tanager.mp3" type="audio/mp3" >
+                    </audio>
+                       
+            </div>
+            <div id="player">
+                 <div id="songTitle"> song Title place holder</div>
+                    <div id="musicButtons">
+                        <!--remove button tags, add playlist of songs, change css, add transition: fade in, -->
+                       <div id="buttonContainer"> <img id="pre" src = "prev.png" onclick="pre()" /></div>     
+                       <div id="buttonContainer"><img src="play-button.png" id ="play" onclick="playAudio()" /></div> 
+                       <div id="buttonContainer"><img src = "next.png" id ="next" onclick="next()" /></div> 
+                    </div>
+                </div>
+            </div>
+    </div>
+    
 
     <script src="javascript.js"></script>
 </body>
