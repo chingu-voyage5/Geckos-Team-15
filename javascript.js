@@ -138,11 +138,26 @@ function updateTitle(){
 };
 
 
+// function plus(){
+// var addMe = document.getElementById("userInput").value;
+// var node = document.createElement("li");
+// var textnode = document.createTextNode(addMe);
+// node.appendChild(textnode);
+// document.getElementById("task").appendChild(node);
+// document.getElementById("userInput").value = "";
+// }
+
+
 function plus(){
-var addMe = document.getElementById("userInput").value;
-var node = document.createElement("LI");
-var textnode = document.createTextNode(addMe);
-node.appendChild(textnode);
-document.getElementById("task").appendChild(node);
-document.getElementById("userInput").value = "";
-}
+    var li = document.createElement("li");
+    var inputValue = document.getElementById("userInput").value;
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    if (inputValue === '') {
+      alert("You must write something!");
+    } else {
+      document.getElementById("taskList").appendChild(li);
+    }
+    document.getElementById("userInput").value = "";
+}  
+

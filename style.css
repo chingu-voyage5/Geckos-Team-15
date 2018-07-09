@@ -161,8 +161,8 @@ body {
 .fa-plus{
     
     border-style: solid;
-    border-width: .3rem;
-    padding: 1rem 2.3rem 1.5rem 2rem;
+    border-width: .5rem;
+    padding: 1rem 2rem 1.1rem 2rem;
     font-size: 2rem;
     background-color: rgb(255, 148, 136) ;
 
@@ -196,10 +196,10 @@ color: white;
     font-size: 2rem;
 }
 
-#task{
+#taskList, li{
  cursor: pointer;
   position: relative;
-  padding:  .5rem;
+  padding: .5rem;
   list-style-type: none;
   font-size: 18px;
   transition: 0.2s;
