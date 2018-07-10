@@ -125,22 +125,27 @@ function closeNews() {
 var playlist = [
     {
       name: "Clair de Lune",
+      artist: "Claude Debussy",
       file_name: "Clair de Lune.mp3"
     },
     {
-      name: "Chad Crouch - European Starling",
+      name: "European Starling",
+      artist: "Chad Crouch",
       file_name: "Chad_Crouch_-_European_Starling.mp3"
     },
     {
-        name: "Chad Crouch - Osprey",
+        name: "Osprey",
+        artist: "Chad Crouch",
         file_name: "Chad_Crouch_-_Osprey.mp3"
       },
       {
-          name: "Chad Crouch - Raven",
+          name: "Raven",
+          artist: "Chad Crouch",
           file_name: "Chad_Crouch_-_Raven.mp3"
         },
         {
-            name: "Chad Crouch - Western Tanager",
+            name: "Western Tanager",
+            artist: "Chad Crouch",
             file_name: "Chad_Crouch_-_Western_Tanager.mp3"
           },
         
@@ -152,6 +157,7 @@ var currentSong=0;
 var song = document.getElementById(playlist[currentSong].file_name);
 var musicClicked = false;
 var title = playlist[currentSong].name;
+var artist = playlist[currentSong].artist;
 
 function playAudio(){
     
@@ -193,12 +199,14 @@ function pauseMusic(){
 function playMusic(){
     song.play();
 };
+
 function nextPreHelper(){
     pauseMusic();
     playing = false;
     song.currentTime = 0;
     song = document.getElementById(playlist[currentSong].file_name);
     title = playlist[currentSong].name;
+    artist = playlist[currentSong].artist;
     playAudio();
 };
 
@@ -214,6 +222,7 @@ function slideMusic(){
 
 function updateTitle(){
     document.getElementById("songTitle").innerHTML = title;
+    document.getElementById("artist").innerHTML = artist;
 };
 
 
