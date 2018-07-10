@@ -217,7 +217,17 @@ function updateTitle(){
 };
 
 
+//---------WEATHER -------------------------------------
 
+var weatherIcon = document.querySelector(".icon-svg602").addEventListener("click", displayWeather);
+function displayWeather() {
+    document.querySelector('.weather-panel').style.display = "block";
+}
+
+var weatherCloseBtn = document.querySelector(".weather-close-btn").addEventListener("click", closeWeather);
+function closeWeather() {
+    document.querySelector('.weather-panel').style.display = "none";
+}
 
 
 
