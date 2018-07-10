@@ -13,7 +13,7 @@ font-family: 'Roboto', sans-serif; */
 
 html {
     font-size: 62.5%;
-    background-color: black;
+    background-color: rgb(40, 40, 41);
 }
 
 body {
@@ -160,7 +160,7 @@ body {
 
 .article-info {
  /* background: rgba(69, 90, 207, 0.774); */
- background: rgba(252, 252, 253, 0.74);
+ background-color: rgba(252, 252, 253, 0.74);
 
  /* border: 1px solid white; */
  /* border-left: 1rem solid rgba(69, 90, 207, 0.774); */
@@ -396,23 +396,30 @@ a.newsAPI {
     right: 0;
     top: 0;
 
-
     width: 30rem;
     height: 100vh;
 
     display: none;
+    overflow: auto;
 }
 
-.daily-weather {
-    background-color: white;
-    width: 28.5rem;
-    height: 5rem;
-    
+
+.weather-info {
+    background-color: rgba(252, 252, 253, 0.74);
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    height: 18rem;
+    overflow: hidden;
+    font-family: 'Cutive Mono', monospace;
 }
 
 .five-day-forecast {
-    
     list-style-type: none;
+    width: 28.5rem;
+    margin-top: 1.5rem; 
+    
 }
 
 
@@ -422,7 +429,7 @@ a.newsAPI {
     position: fixed;
     top: .5rem;
     right: .5rem;
-    color: rgba(255, 255, 255, 0.76);
+    color: rgba(255, 255, 255, 0.842);
     box-shadow: 0px 0px 3px black;
     background-color: rgba(69, 90, 207, 0.774);
     border-radius: 100%;
@@ -435,4 +442,54 @@ a.newsAPI {
 
 .weather-close-btn:hover {
 background-color: rgba(255, 166, 0, 0.616);
+}
+
+.weather-day {
+    color: white;
+    background-color: rgba(69, 90, 207, 0.774);
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    padding: .5rem 0;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+}
+
+.temp-current {
+    font-size: 6rem;
+    display: inline-block;
+    margin-left: 1.5rem;
+    text-shadow: 1px 1px 1px rgba(31, 41, 97, 0.959);
+}
+
+.high-low-temp {
+    font-size: 2.5rem;
+    display: inline-block;
+    float: right;
+    margin-right: 2rem;
+    color: rgb(122, 141, 247);
+    
+}
+
+.upper-weather {
+    display: inline-block;
+    width: 100%;
+    padding-top: 2rem;
+    
+    
+}
+
+.weather-description {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+    
+}
+
+.weather-icon {
+    font-size: 6rem;
+    float: left;
+    margin-left: 2rem;
+    color: rgba(253, 186, 86, 0.87);
+    text-shadow: 1px 1px 1px rgb(184, 122, 31);
 }
