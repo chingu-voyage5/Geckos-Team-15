@@ -22,7 +22,7 @@ body {
 }
 
 body {
-    opacity: 1; 
+        opacity: 1; 
        transition: 3s opacity;
        transition-timing-function: cubic-bezier(.17,.67,.06,.85);
 }
@@ -159,18 +159,10 @@ body {
 }
 
 .article-info {
- /* background: rgba(69, 90, 207, 0.774); */
- background-color: rgba(252, 252, 253, 0.74);
-
- /* border: 1px solid white; */
- /* border-left: 1rem solid rgba(69, 90, 207, 0.774); */
+ background-color: rgba(252, 252, 253, 0.87);
  border-radius: .5rem;
-
- /* padding: .5rem; */
-
- margin-bottom: 1rem;
+ margin-bottom: 1.5rem;
  font-family: 'Roboto', sans-serif;
- /* text-shadow: 1px 1px 5px rgb(0, 0, 0); */
  box-shadow: 1px 1px 5px rgb(0, 0, 0);
  overflow: hidden;
  
@@ -179,12 +171,14 @@ body {
 .news-close-btn {
     font-size: 3rem;
     position: absolute;
-    position: fixed;
+    /* position: fixed; */
+    
+
     top: .5rem;
     right: .5rem;
     color: rgba(255, 255, 255, 0.76);
     box-shadow: 0px 0px 3px black;
-    background-color: rgba(69, 90, 207, 0.774);
+    background-color: rgba(69, 90, 207, 0.863);
     border-radius: 100%;
     height: 2.9rem;
     width: 2.9rem;
@@ -194,31 +188,27 @@ body {
 }
 
 .news-close-btn:hover {
-background-color: rgba(255, 166, 0, 0.616);
+background-color: rgba(255, 166, 0, 0.753);
 }
 
 .feature-news {
-    position: absolute;
-    right: 0;
+    position: fixed;
     top: 0;
-
-
+    right: -30rem;
+    
     width: 30rem;
+    
     height: 100vh;
     overflow: auto;
+    z-index: 99;
+
+    transition: all .8s;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
     
-    /* display: transparent; */
-    display: none;
-    /* transform: translateX(30rem); */
+    transition-timing-function: cubic-bezier(.25,.1,.25,1);
 }
 
-/* .feature-news-visible {
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translateX(0);
-    display: block;
-} */
 
 .article-info-list {
     list-style-type: none;
@@ -226,9 +216,9 @@ background-color: rgba(255, 166, 0, 0.616);
     font-size: 1.3rem;
     color: rgb(69, 90, 207);
      /* text-shadow: 1px 1px 1px black; */
-     padding: .75rem; 
+     padding: 1.25rem; 
      /* border: 1px solid rgba(69, 90, 207, 0.774); */
-     border-left: 1.2rem solid rgb(69, 90, 207);
+     border-left: 2rem solid rgba(69, 90, 207, 0.726);
     
    
 }
@@ -241,7 +231,6 @@ a:link {
     text-decoration: none;
     /* background-color: rgba(69, 90, 207, 0.774); */
     
-
     transition: all .5s;
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
@@ -252,7 +241,7 @@ a:link {
     /* color: rgb(0, 38, 255);
     border: 1px solid rgb(0, 38, 255); */
     /* text-decoration: underline rgba(253, 186, 86); */
-    border-left: 1.2rem solid rgba(253, 186, 86, 0.87);
+    border-left: 2rem solid rgba(253, 186, 86, 0.87);
    
 }
 
@@ -267,16 +256,17 @@ a:link {
 a.newsAPI {
     color: rgba(255, 255, 255, 0.562);
     letter-spacing: 2px;
-    display: inline-block;
+    display: block;
     margin-bottom: .5rem;
+    margin-right: 2rem;
     font-family: 'Roboto', sans-serif;
-    display: none;
+    text-align: right;
 }
 
 /* Music player styling ---------------------- */
 
  #player{ 
-    padding: 1rem;
+    
     /* background-color: rgba(255, 255, 255, 0.74); */
 
     background: #4e54c8;  /* fallback for old browsers */
@@ -306,20 +296,23 @@ a.newsAPI {
 }  
 
 .title-artist {
-    width: 24rem;
+    width: 100%;
     margin: 2rem auto;
     /* border: 1px solid rgb(39, 59, 177); */
-    border: 1px solid white;
-
-    border-radius: .5rem;
-    padding: 1.5rem;
+    border-bottom: 1rem solid #D3CCE3; 
+    border-top: 1rem solid #D3CCE3; 
+    /* border-radius: .5rem; */
+    /* padding: 1.5rem; */
     height: 10rem;
     position: relative;
 
-    background-color: rgba(39, 36, 48, 0.185);
+    /* background-color: rgba(39, 36, 48, 0.185); */
    
 
-    /* background-color: rgba(255, 255, 255, 0.849); */
+    background: #D3CCE3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     color: white;
     /* color: rgb(39, 59, 177); */
     
@@ -392,15 +385,22 @@ a.newsAPI {
 
 .weather-panel {
     color: #47D6C0;
-    position: absolute;
-    right: 0;
+
+    position: fixed;
     top: 0;
-
+    right: -30rem;
+    
     width: 30rem;
+    
     height: 100vh;
-
-    display: none;
     overflow: auto;
+    z-index: 99;
+
+    transition: all .8s;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    
+    transition-timing-function: cubic-bezier(.25,.1,.25,1);
 }
 
 
@@ -427,7 +427,8 @@ a.newsAPI {
 .weather-close-btn {
     font-size: 3rem;
     position: absolute;
-    position: fixed;
+    /* position: fixed; */
+
     top: .5rem;
     right: .5rem;
     color: rgba(255, 255, 255, 0.842);
