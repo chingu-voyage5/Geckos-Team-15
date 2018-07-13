@@ -212,10 +212,10 @@ function nextPreHelper(){
 function slideMusic(){
     if(musicClicked){
      musicClicked= false; 
-    document.getElementById("player").style.display ="block";
+    document.querySelector('#player').style.right = '1.5rem';
     }else{
         musicClicked = true;
-        document.getElementById("player").style.display= "none";
+        document.querySelector('#player').style.right = '-30rem';
     }
 };
 

@@ -130,7 +130,7 @@ body {
 .feature-icon {
     line-height: 1;
     text-align: center;
-    margin: 2rem 0rem;
+    margin: 3rem 0rem;
     padding: .6rem .75rem;
 
     /* background: rgb(59, 59, 63); */
@@ -239,10 +239,6 @@ a:link {
 
 .article-info-list:hover {
     color: rgb(57, 199, 178);
-    /* border: 1px solid rgb(0, 38, 255); */
-    /* text-decoration: underline rgba(253, 186, 86); */
-   
-   
 }
 
 .article-title {
@@ -250,7 +246,6 @@ a:link {
     letter-spacing: 2px;
     font-size: 1.5rem;
     margin-bottom: .75rem;
-    /* color: rgb(69, 90, 207); */
     padding: 1.25rem; 
 }
 
@@ -275,28 +270,30 @@ a.newsAPI {
 /* Music player styling ---------------------- */
 
  #player{ 
-    
-    /* background-color: rgba(255, 255, 255, 0.74); */
 
-    background: #4e54c8;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: linear-gradient(rgba(255, 166, 0, 0.822), rgba(255, 191, 71, 0.932));
 
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
     border-radius: .5rem;
 
+    /* position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem; */
 
-    position: absolute;
-    bottom: 3rem;
-    right: 1rem;
+    position: fixed;
+    bottom: 1.5rem;
+    right: -30rem;
+    
+    transition: all .8s;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    
+    transition-timing-function: cubic-bezier(.25,.1,.25,1);
 
     z-index: 999;
     
-    width: 30rem;
-    height: 20rem;
-    
-    /* color: rgb(39, 59, 177); */
+    width: 28.5rem;
+    height: 18rem;
     color: white;
  
     font-family: 'Roboto', sans-serif;
@@ -307,50 +304,36 @@ a.newsAPI {
 
 .title-artist {
     width: 100%;
-    margin: 2rem auto;
-    /* border: 1px solid rgb(39, 59, 177); */
-    border-bottom: 1rem solid #D3CCE3; 
-    border-top: 1rem solid #D3CCE3; 
-    /* border-radius: .5rem; */
-    /* padding: 1.5rem; */
+    margin: 1.5rem auto;
     height: 10rem;
     position: relative;
 
-    /* background-color: rgba(39, 36, 48, 0.185); */
-   
-
-    background: #D3CCE3;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    color: white;
-    /* color: rgb(39, 59, 177); */
+    background-color: rgba(255, 255, 255, 0.952);
+    color: #47D6C0;
+    
     
 }
 
 
-#songTitle {
+.center-song {
     position: absolute;
-    top: 20%;
+    top: 18%;
     left: 50%;
     transform: translateX(-50%);
     letter-spacing: .5rem;
+    width: 100%;
 }
 
 
 #artist {
     font-family: 'Cutive Mono', monospace;
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
     letter-spacing: 3px;
 }
 
 #buttonContainer{
     display: inline-block;
     text-align: center; 
-    width: 24rem;
+    width: 100%;
     margin: 0 auto;
     
 }
@@ -366,9 +349,7 @@ background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, F
 }
 
 #play:hover,#next:hover,#pre:hover{
-    /* background-color: rgb(0, 0, 0);  */
-    color: rgb(39, 59, 177);
-    /* border-radius: 2rem; */
+    color: rgba(184, 120, 3, 0.89);
 }
 
 
@@ -381,9 +362,9 @@ background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, F
 #songTitle{
     text-align: center;
     padding-bottom: .5rem;
-    font-size: 2rem;
+    font-size: 2.3rem;
     text-transform: uppercase;
-    
+
 }
 
 #musicButtons{
