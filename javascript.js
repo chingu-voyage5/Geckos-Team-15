@@ -225,6 +225,67 @@ function updateTitle(){
 };
 
 
+  
+ //---------TASK LIST -------------------------------------
+  
+function plus(){
+   
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("userInput").value;
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if (inputValue === '') {
+          alert("You must write something!");
+        } else {
+          document.getElementById("taskList").appendChild(li);
+        }
+        document.getElementById("userInput").value = "";
+      
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("");
+        span.className =  "fas fa-trash-alt";
+        span.appendChild(txt);
+        li.appendChild(span);
+      
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+          }
+        }
+      };
+
+      
+var myNodelist = document.getElementsByClassName("task");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("");
+  span.className =  "fas fa-trash-alt";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+var close = document.getElementsByClassName("fas fa-trash-alt");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+var taskClicked = false;
+function slideTask(){
+    if(taskClicked){
+     taskClicked= false; 
+    document.getElementById("taskContainer").style.display ="block";
+    }else{
+        taskClicked = true;
+        document.getElementById("taskContainer").style.display= "none";
+    }
+};
+
+
 //---------WEATHER -------------------------------------
 
 var weatherIcon = document.querySelector(".icon-svg602").addEventListener("click", displayWeather);
