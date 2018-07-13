@@ -159,7 +159,7 @@ body {
 }
 
 .article-info {
- background-color: rgba(252, 252, 253, 0.87);
+ background-color: rgba(252, 252, 253, 0.89);
  border-radius: .5rem;
  margin-bottom: 1.5rem;
  font-family: 'Roboto', sans-serif;
@@ -176,7 +176,7 @@ body {
 
     top: .5rem;
     right: .5rem;
-    color: rgba(255, 255, 255, 0.76);
+    color: rgba(255, 255, 255, 0.829);
     box-shadow: 0px 0px 3px black;
     background-color: rgba(69, 90, 207, 0.863);
     border-radius: 100%;
@@ -215,10 +215,10 @@ background-color: rgba(255, 166, 0, 0.753);
   
     font-size: 1.3rem;
     color: rgb(69, 90, 207);
-     /* text-shadow: 1px 1px 1px black; */
-     padding: 1.25rem; 
-     /* border: 1px solid rgba(69, 90, 207, 0.774); */
-     border-left: 2rem solid rgba(69, 90, 207, 0.726);
+     
+     /* padding: 1.25rem; 
+     
+     border-left: 2rem solid rgba(69, 90, 207, 0.726); */
     
    
 }
@@ -238,10 +238,10 @@ a:link {
 }
 
 .article-info-list:hover {
-    /* color: rgb(0, 38, 255);
-    border: 1px solid rgb(0, 38, 255); */
+    color: rgb(57, 199, 178);
+    /* border: 1px solid rgb(0, 38, 255); */
     /* text-decoration: underline rgba(253, 186, 86); */
-    border-left: 2rem solid rgba(253, 186, 86, 0.87);
+   
    
 }
 
@@ -250,17 +250,26 @@ a:link {
     letter-spacing: 2px;
     font-size: 1.5rem;
     margin-bottom: .75rem;
-    color: rgb(39, 59, 177);
+    /* color: rgb(69, 90, 207); */
+    padding: 1.25rem; 
 }
 
 a.newsAPI {
     color: rgba(255, 255, 255, 0.562);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     display: block;
     margin-bottom: .5rem;
     margin-right: 2rem;
     font-family: 'Roboto', sans-serif;
     text-align: right;
+}
+
+.article-source-bk {
+    background: linear-gradient(rgba(69, 90, 207, 0.877), rgba(118, 138, 252, 0.877));
+    color: white;
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
 }
 
 /* Music player styling ---------------------- */

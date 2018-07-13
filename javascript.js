@@ -95,10 +95,10 @@ function getNews() {
     
 
                 myLi += '<li class="article"><div class="article-info"><a href="' + articleLink + 
-                '"><ul class="article-info-list"><li class="article-title">' + title + 
-                '</li><li><span class="article-source">' + source + 
+                '"><ul class="article-info-list"><li><div class="article-source-bk"><span class="article-source">'  + source + 
                 ' | </span><span class="article-time">'+ newsDate + 
-                '</span></li></ul></a></div></li>'
+                '</div></span></li><li class="article-title">' + title + 
+                '</li></ul></a></div></li>'
             };
             
             document.querySelector(".news-results").innerHTML = myLi; 
