@@ -95,10 +95,10 @@ function getNews() {
     
 
                 myLi += '<li class="article"><div class="article-info"><a href="' + articleLink + 
-                '"><ul class="article-info-list"><li class="article-title">' + title + 
-                '</li><li><span class="article-source">' + source + 
+                '"><ul class="article-info-list"><li><div class="article-source-bk"><span class="article-source">'  + source + 
                 ' | </span><span class="article-time">'+ newsDate + 
-                '</span></li></ul></a></div></li>'
+                '</div></span></li><li class="article-title">' + title + 
+                '</li></ul></a></div></li>'
             };
             
             document.querySelector(".news-results").innerHTML = myLi; 
@@ -109,14 +109,13 @@ getNews();
 
 
 var newsIcon = document.querySelector(".icon-svg142").addEventListener("click", displayNews);
-function displayNews() {
-    document.querySelector('.feature-news').style.display = "block";
-    // document.querySelector('.feature-news').classList.add('.feature-news-visible');
+function displayNews() { 
+    document.querySelector('.feature-news').style.right = 0;
 }
 
 var newsCloseBtn = document.querySelector(".news-close-btn").addEventListener("click", closeNews);
 function closeNews() {
-    document.querySelector('.feature-news').style.display = "none";
+    document.querySelector('.feature-news').style.right = '-30rem';
 }
 
 
@@ -125,22 +124,27 @@ function closeNews() {
 var playlist = [
     {
       name: "Clair de Lune",
+      artist: "Claude Debussy",
       file_name: "Clair de Lune.mp3"
     },
     {
-      name: "Chad Crouch - European Starling",
+      name: "European Starling",
+      artist: "Chad Crouch",
       file_name: "Chad_Crouch_-_European_Starling.mp3"
     },
     {
-        name: "Chad Crouch - Osprey",
+        name: "Osprey",
+        artist: "Chad Crouch",
         file_name: "Chad_Crouch_-_Osprey.mp3"
       },
       {
-          name: "Chad Crouch - Raven",
+          name: "Raven",
+          artist: "Chad Crouch",
           file_name: "Chad_Crouch_-_Raven.mp3"
         },
         {
-            name: "Chad Crouch - Western Tanager",
+            name: "Western Tanager",
+            artist: "Chad Crouch",
             file_name: "Chad_Crouch_-_Western_Tanager.mp3"
           },
         
@@ -152,6 +156,7 @@ var currentSong=0;
 var song = document.getElementById(playlist[currentSong].file_name);
 var musicClicked = false;
 var title = playlist[currentSong].name;
+var artist = playlist[currentSong].artist;
 
 function playAudio(){
     
@@ -193,12 +198,14 @@ function pauseMusic(){
 function playMusic(){
     song.play();
 };
+
 function nextPreHelper(){
     pauseMusic();
     playing = false;
     song.currentTime = 0;
     song = document.getElementById(playlist[currentSong].file_name);
     title = playlist[currentSong].name;
+    artist = playlist[currentSong].artist;
     playAudio();
 };
 
@@ -214,9 +221,13 @@ function slideMusic(){
 
 function updateTitle(){
     document.getElementById("songTitle").innerHTML = title;
+    document.getElementById("artist").innerHTML = artist;
 };
 
 
+  
+ //---------TASK LIST -------------------------------------
+  
 function plus(){
    
         var li = document.createElement("li");
@@ -274,6 +285,19 @@ function slideTask(){
     }
 };
 
+
+//---------WEATHER -------------------------------------
+
+var weatherIcon = document.querySelector(".icon-svg602").addEventListener("click", displayWeather);
+function displayWeather() {
+    document.querySelector('.weather-panel').style.right = 0;
+    // document.querySelector('.weather-close-btn').style.position = 'fixed';
+}
+
+var weatherCloseBtn = document.querySelector(".weather-close-btn").addEventListener("click", closeWeather);
+function closeWeather() {
+    document.querySelector('.weather-panel').style.right = '-30rem';
+}
 
 
 
