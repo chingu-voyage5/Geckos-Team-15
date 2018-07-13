@@ -13,34 +13,85 @@ font-family: 'Roboto', sans-serif; */
 
 html {
     font-size: 62.5%;
-    
+    background-color: black;
 }
 
 body {
     box-sizing: border-box;
     color: white;
+}
+
+body {
+    opacity: 1; 
+       transition: 3s opacity;
+       transition-timing-function: cubic-bezier(.17,.67,.06,.85);
+}
+
    
-    
+   body.fade-out {
+       opacity: 0;
+       transition: none;
 }
 
 .landing-body {
     height: 100vh;
-    /* background-image: url(background-images/hikersbay.jpg); */
     background-image: url('https://source.unsplash.com/collection/2251820/1600x900/');
     background-size: cover;
     background-position: center;
     position: relative;
 }
 
+@media only screen and (max-width: 37.5em) {
+    .date {
+        font-size: 1rem;
+    }
+
+    .time {
+        font-size: 4rem;
+    }
+    
+    .feature-icon {
+        float: left;
+        text-align: center;
+    } 
+
+    .feature-navigation {
+    width: 100%;
+    margin: 0 auto;
+    transform: translate(0%, 0%);
+    
+    }
+
+    .feature-list {
+    position: absolute;
+       top: 75%;
+       left: 50%;
+       transform: translate(-50%, 0%);
+    }
+
+    .date-time-display { 
+        padding: 0;
+        margin: 0;
+        display: block;
+        top: 25%;
+        /* left: 50%; */
+        width: 90%;
+        margin: 0 auto;
+        /* transform: translate(-25%); */
+    }
+}
+
+
+
 .date-time-display {
     padding: 1.5rem;
     display: inline-block;
     margin: 1.5rem;
     position: absolute;
-    bottom: 1rem;
-    left: 1rem;
+    bottom: 0%;
+    left: 0%;
     text-align: center;
-    /* background: rgba(0, 0, 0, 0.164); */
+
 }
 
 .date {
@@ -61,7 +112,7 @@ body {
 
 .feature-navigation {
     color: white;
-    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.637);
     float: right;
     padding: 1.5rem;
     position: absolute;
@@ -69,33 +120,170 @@ body {
     right: 0%;
     transform: translate(0%, -50%);
     backface-visibility: hidden;
-    
 }
 
 .feature-list {
     list-style-type: none;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
+<<<<<<< HEAD
 .icon {
+=======
+.feature-icon {
+>>>>>>> development
     line-height: 1;
     text-align: center;
     margin: 2rem 0rem;
     padding: .6rem .75rem;
-    
+
+    /* background: rgb(59, 59, 63); */
+    /* border-radius: 100%; */
+
     transition: all .3s;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
    
 }
 
+.feature-icon:hover {
 
+<<<<<<< HEAD
 .icon:hover {
     border-radius: 10%;
+=======
+>>>>>>> development
     /* font-size: 5rem; */
     transform: scale(1.5, 1.5);
     backface-visibility: hidden;
 }
+
+
+/* News element styling ---------------------- */
+
+.news-results {
+    list-style-type: none;
+    width: 28.5rem;
+    margin-top: 1.5rem; 
+}
+
+.article-info {
+ /* background: rgba(69, 90, 207, 0.774); */
+ background: rgba(252, 252, 253, 0.74);
+
+ /* border: 1px solid white; */
+ /* border-left: 1rem solid rgba(69, 90, 207, 0.774); */
+ border-radius: .5rem;
+
+ /* padding: .5rem; */
+
+ margin-bottom: 1rem;
+ font-family: 'Roboto', sans-serif;
+ /* text-shadow: 1px 1px 5px rgb(0, 0, 0); */
+ box-shadow: 1px 1px 5px rgb(0, 0, 0);
+ overflow: hidden;
+ 
+}
+
+.news-close-btn {
+    font-size: 3rem;
+    position: absolute;
+    position: fixed;
+    top: .5rem;
+    right: .5rem;
+    color: rgba(255, 255, 255, 0.76);
+    box-shadow: 0px 0px 3px black;
+    background-color: rgba(69, 90, 207, 0.774);
+    border-radius: 100%;
+    height: 2.9rem;
+    width: 2.9rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.news-close-btn:hover {
+background-color: rgba(255, 166, 0, 0.616);
+}
+
+.feature-news {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+
+    width: 30rem;
+    height: 100vh;
+    overflow: auto;
+    
+    /* display: transparent; */
+    display: none;
+    /* transform: translateX(30rem); */
+}
+
+/* .feature-news-visible {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(0);
+    display: block;
+} */
+
+.article-info-list {
+    list-style-type: none;
+  
+    font-size: 1.3rem;
+    color: rgb(69, 90, 207);
+     /* text-shadow: 1px 1px 1px black; */
+     padding: .75rem; 
+     /* border: 1px solid rgba(69, 90, 207, 0.774); */
+     border-left: 1.2rem solid rgb(69, 90, 207);
+    
+   
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.article-info:hover {
+    text-decoration: none;
+    /* background-color: rgba(69, 90, 207, 0.774); */
+    
+
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+   
+}
+
+.article-info-list:hover {
+    /* color: rgb(0, 38, 255);
+    border: 1px solid rgb(0, 38, 255); */
+    /* text-decoration: underline rgba(253, 186, 86); */
+    border-left: 1.2rem solid rgba(253, 186, 86, 0.87);
+   
+}
+
+.article-title {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    margin-bottom: .75rem;
+    color: rgb(39, 59, 177);
+}
+
+a.newsAPI {
+    color: rgba(255, 255, 255, 0.562);
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-family: 'Roboto', sans-serif;
+    display: none;
+}
+
+/* Music player styling ---------------------- */
+
  #player{ 
     
     background-color: rgba(187, 187, 187, 0.4);
@@ -208,6 +396,7 @@ color: white;
   font-size:  3rem;
 }
 
+<<<<<<< HEAD
 .fa-trash-alt {
     position: absolute;
     right: 0;
@@ -216,3 +405,5 @@ color: white;
 
 
 
+=======
+>>>>>>> development
