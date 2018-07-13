@@ -362,16 +362,72 @@ a.newsAPI {
 #songTitle{
     text-align: center;
     padding-bottom: .5rem;
-    
     font-size: 2.3rem;
     text-transform: uppercase;
-   
-    
+
 }
 
 #musicButtons{
-    text-align: center;
+    text-align: center; 
 }
+
+/* Task list styling ----------------------*/
+
+.fa-plus{
+    
+    border-style: solid;
+    border-width: .5rem;
+    padding: 1rem 2rem 1.1rem 2rem;
+    font-size: 2rem;
+    background-color: rgb(255, 148, 136) ;
+
+}
+#userInput{
+width: 28rem;
+height: 5rem;
+border-style: solid;
+border-width: .5rem;
+border-color: white;
+background-color:rgba(187, 187, 187, .01);
+font-size: 2rem;
+color: white;
+}
+
+#taskContainer{
+    padding: 0;
+    background-color: rgba(187, 187, 187, 0.4);
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    z-index: 999;
+    width: 35rem;
+    
+}
+#taskTitle{    
+    background-color: rgb(255, 148, 136) ;
+    padding: 1rem;
+    text-align: center;
+    font-family: 'Cutive Mono', monospace;
+    font-size: 2rem;
+}
+
+#taskList, li{
+ cursor: pointer;
+  position: relative;
+  padding: .5rem;
+  list-style-type: none;
+  font-size: 18px;
+  transition: 0.2s;
+  text-align: center;
+  font-family: 'Cutive Mono', monospace;
+  font-size:  3rem;
+}
+
+.fa-trash-alt {
+    position: absolute;
+    right: 0;
+    font-size: 3rem;
+  }
 
 /* Weather app styling ----------------------*/
 
@@ -498,5 +554,6 @@ background-color: rgba(255, 166, 0, 0.822);
     color: #47D6C0;
     
 } 
+
 
 
