@@ -263,10 +263,18 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
+var taskClicked = false;
+function slideTask(){
+    if(taskClicked){
+     taskClicked= false; 
+    document.getElementById("taskContainer").style.display ="block";
+    }else{
+        taskClicked = true;
+        document.getElementById("taskContainer").style.display= "none";
+    }
+};
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> development
+

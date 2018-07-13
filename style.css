@@ -127,11 +127,7 @@ body {
     font-size: 2rem;
 }
 
-<<<<<<< HEAD
-.icon {
-=======
 .feature-icon {
->>>>>>> development
     line-height: 1;
     text-align: center;
     margin: 2rem 0rem;
@@ -148,11 +144,6 @@ body {
 
 .feature-icon:hover {
 
-<<<<<<< HEAD
-.icon:hover {
-    border-radius: 10%;
-=======
->>>>>>> development
     /* font-size: 5rem; */
     transform: scale(1.5, 1.5);
     backface-visibility: hidden;
@@ -396,7 +387,6 @@ color: white;
   font-size:  3rem;
 }
 
-<<<<<<< HEAD
 .fa-trash-alt {
     position: absolute;
     right: 0;
@@ -405,5 +395,3 @@ color: white;
 
 
 
-=======
->>>>>>> development
