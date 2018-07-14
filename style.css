@@ -13,33 +13,85 @@ font-family: 'Roboto', sans-serif; */
 
 html {
     font-size: 62.5%;
-    
+    background-color: rgb(40, 40, 41);
 }
 
 body {
     box-sizing: border-box;
     color: white;
-    
+}
+
+body {
+        opacity: 1; 
+       transition: 3s opacity;
+       transition-timing-function: cubic-bezier(.17,.67,.06,.85);
+}
+
+   
+   body.fade-out {
+       opacity: 0;
+       transition: none;
 }
 
 .landing-body {
     height: 100vh;
-    /* background-image: url(background-images/hikersbay.jpg); */
     background-image: url('https://source.unsplash.com/collection/2251820/1600x900/');
     background-size: cover;
     background-position: center;
     position: relative;
 }
 
+@media only screen and (max-width: 37.5em) {
+    .date {
+        font-size: 1rem;
+    }
+
+    .time {
+        font-size: 4rem;
+    }
+    
+    .feature-icon {
+        float: left;
+        text-align: center;
+    } 
+
+    .feature-navigation {
+    width: 100%;
+    margin: 0 auto;
+    transform: translate(0%, 0%);
+    
+    }
+
+    .feature-list {
+    position: absolute;
+       top: 75%;
+       left: 50%;
+       transform: translate(-50%, 0%);
+    }
+
+    .date-time-display { 
+        padding: 0;
+        margin: 0;
+        display: block;
+        top: 25%;
+        /* left: 50%; */
+        width: 90%;
+        margin: 0 auto;
+        /* transform: translate(-25%); */
+    }
+}
+
+
+
 .date-time-display {
     padding: 1.5rem;
     display: inline-block;
     margin: 1.5rem;
     position: absolute;
-    bottom: 1rem;
-    left: 1rem;
+    bottom: 0%;
+    left: 0%;
     text-align: center;
-    /* background: rgba(0, 0, 0, 0.164); */
+
 }
 
 .date {
@@ -60,7 +112,7 @@ body {
 
 .feature-navigation {
     color: white;
-    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.637);
     float: right;
     padding: 1.5rem;
     position: absolute;
@@ -68,33 +120,440 @@ body {
     right: 0%;
     transform: translate(0%, -50%);
     backface-visibility: hidden;
-    
 }
 
 .feature-list {
     list-style-type: none;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
-li {
+.feature-icon {
     line-height: 1;
     text-align: center;
-    margin: 2rem 0rem;
+    margin: 3rem 0rem;
     padding: .6rem .75rem;
-    
+
+    /* background: rgb(59, 59, 63); */
+    /* border-radius: 100%; */
+
     transition: all .3s;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
    
 }
 
+.feature-icon:hover {
 
-li:hover {
-    border-radius: 10%;
     /* font-size: 5rem; */
     transform: scale(1.5, 1.5);
     backface-visibility: hidden;
 }
+
+
+/* News element styling ---------------------- */
+
+.news-results {
+    list-style-type: none;
+    width: 28.5rem;
+    margin-top: 1.5rem; 
+}
+
+.article-info {
+ background-color: rgba(252, 252, 253, 0.89);
+ border-radius: .5rem;
+ margin-bottom: 1.5rem;
+ font-family: 'Roboto', sans-serif;
+ box-shadow: 1px 1px 5px rgb(0, 0, 0);
+ overflow: hidden;
+ 
+}
+
+.news-close-btn {
+    font-size: 3rem;
+    position: absolute;
+    /* position: fixed; */
+    
+
+    top: .5rem;
+    right: .5rem;
+    color: rgba(255, 255, 255, 0.829);
+    box-shadow: 0px 0px 3px black;
+    background-color: rgba(69, 90, 207, 0.863);
+    border-radius: 100%;
+    height: 2.9rem;
+    width: 2.9rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.news-close-btn:hover {
+background-color: rgba(255, 166, 0, 0.753);
+}
+
+.feature-news {
+    position: fixed;
+    top: 0;
+    right: -30rem;
+    
+    width: 30rem;
+    
+    height: 100vh;
+    overflow: auto;
+    z-index: 99;
+
+    transition: all .8s;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    
+    transition-timing-function: cubic-bezier(.25,.1,.25,1);
+}
+
+
+.article-info-list {
+    list-style-type: none;
+  
+    font-size: 1.3rem;
+    color: rgb(69, 90, 207);
+     
+     /* padding: 1.25rem; 
+     
+     border-left: 2rem solid rgba(69, 90, 207, 0.726); */
+    
+   
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.article-info:hover {
+    text-decoration: none;
+    /* background-color: rgba(69, 90, 207, 0.774); */
+    
+    transition: all .5s;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+   
+}
+
+.article-info-list:hover {
+    color: rgb(57, 199, 178);
+}
+
+.article-title {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    margin-bottom: .75rem;
+    padding: 1.25rem; 
+}
+
+a.newsAPI {
+    color: rgba(255, 255, 255, 0.562);
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: .5rem;
+    margin-right: 2rem;
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+}
+
+.article-source-bk {
+    background: linear-gradient(rgba(69, 90, 207, 0.877), rgba(118, 138, 252, 0.877));
+    color: white;
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+/* Music player styling ---------------------- */
+
+ #player{ 
+
+    background: linear-gradient(rgba(255, 166, 0, 0.822), rgba(255, 191, 71, 0.932));
+
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    border-radius: .5rem;
+
+    /* position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem; */
+
+    position: fixed;
+    bottom: 1.5rem;
+    right: -30rem;
+    
+    transition: all .8s;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    
+    transition-timing-function: cubic-bezier(.25,.1,.25,1);
+
+    z-index: 999;
+    
+    width: 28.5rem;
+    height: 18rem;
+    color: white;
+ 
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    
+    text-align: center;
+}  
+
+.title-artist {
+    width: 100%;
+    margin: 1.5rem auto;
+    height: 10rem;
+    position: relative;
+
+    background-color: rgba(255, 255, 255, 0.952);
+    color: #47D6C0;
+    
+    
+}
+
+
+.center-song {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: .5rem;
+    width: 100%;
+}
+
+
+#artist {
+    font-family: 'Cutive Mono', monospace;
+    letter-spacing: 3px;
+}
+
+#buttonContainer{
+    display: inline-block;
+    text-align: center; 
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+#play,#next, #pre{
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    font-size: 3rem;
+    
+    margin: 4rem 1rem;
+    color: white;
+   
+}
+
+#play:hover,#next:hover,#pre:hover{
+    color: rgba(184, 120, 3, 0.89);
+}
+
+
+#play:active,#next:active,#pre:active{
+    
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#songTitle{
+    text-align: center;
+    padding-bottom: .5rem;
+    font-size: 2.3rem;
+    text-transform: uppercase;
+
+}
+
+#musicButtons{
+    text-align: center; 
+}
+
+/* Task list styling ----------------------*/
+
+.fa-plus{
+    
+    border-style: solid;
+    border-width: .5rem;
+    padding: 1rem 2rem 1.1rem 2rem;
+    font-size: 2rem;
+    background-color: rgb(255, 148, 136) ;
+
+}
+#userInput{
+width: 28rem;
+height: 5rem;
+border-style: solid;
+border-width: .5rem;
+border-color: white;
+background-color:rgba(187, 187, 187, .01);
+font-size: 2rem;
+color: white;
+}
+
+#taskContainer{
+    padding: 0;
+    background-color: rgba(187, 187, 187, 0.4);
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    z-index: 999;
+    width: 35rem;
+    
+}
+#taskTitle{    
+    background-color: rgb(255, 148, 136) ;
+    padding: 1rem;
+    text-align: center;
+    font-family: 'Cutive Mono', monospace;
+    font-size: 2rem;
+}
+
+#taskList li{
+ cursor: pointer;
+  position: relative;
+  padding: .5rem;
+  list-style-type: none;
+  font-size: 18px;
+  transition: 0.2s;
+  text-align: center;
+  font-family: 'Cutive Mono', monospace;
+  font-size:  3rem;
+}
+
+.fa-trash-alt {
+    position: absolute;
+    right: 0;
+    font-size: 3rem;
+  }
+
+/* Weather app styling ----------------------*/
+
+.weather-panel {
+    color: #47D6C0;
+
+    position: fixed;
+    top: 0;
+    right: -30rem;
+    
+    width: 30rem;
+    
+    height: 100vh;
+    overflow: auto;
+    z-index: 99;
+
+    transition: all .8s;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    
+    transition-timing-function: cubic-bezier(.25,.1,.25,1);
+}
+
+
+.weather-info {
+    background-color: rgba(252, 252, 253, 0.678);
+    
+    border-radius: .5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    height: 18rem;
+    overflow: hidden;
+    font-family: 'Cutive Mono', monospace;
+}
+
+.five-day-forecast {
+    list-style-type: none;
+    width: 28.5rem;
+    margin-top: 1.5rem; 
+    
+}
+
+
+.weather-close-btn {
+    font-size: 3rem;
+    position: absolute;
+    /* position: fixed; */
+
+    top: .5rem;
+    right: .5rem;
+    color: rgba(255, 255, 255, 0.842);
+    box-shadow: 0px 0px 3px black;
+    background-color: rgb(26, 158, 138);
+    border-radius: 100%;
+    height: 2.9rem;
+    width: 2.9rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    z-index: 999;
+}
+
+.weather-close-btn:hover {
+background-color: rgba(255, 166, 0, 0.822);
+}
+
+
+.weather-day {
+    color: white;
+    /* background-color: #FF9488; */
+    background: linear-gradient(#47D6C0, rgb(78, 248, 223));
+    
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    padding: 1.1rem 0;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+}
+
+.temp-current {
+    font-size: 7rem;
+    line-height: 6rem;
+}
+
+.high-low-temp {
+    font-size: 2rem;
+    display: block;
+   font-weight: bold;
+    
+}
+
+.upper-weather {
+    background-color: rgba(255, 255, 255, 0.842);
+    color: #47D6C0;
+    display: inline-block;
+    width: 50%;
+    float: left;
+    height: 100%;
+    text-align: center;
+    padding-top: 1.5rem;
+    
+}
+
+.temperature {
+    float: left;
+    width: 50%;
+    text-align: center;
+    padding-top: 1.5rem;
+    height: 100%;
+    background-color: #E8F3F1;
+
+}
+
+.weather-description {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #47D6C0;
+    
+}
+
+.weather-icon {
+    font-size: 6rem;
+    color: #47D6C0;
+    
+} 
 
 
 
