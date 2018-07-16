@@ -5,7 +5,7 @@ window.onload = function() {
 };
 
 
-
+var currentTime = "";
 
 //----------DATE AND TIME -------------------------------------
 
@@ -45,7 +45,7 @@ function getDateTime() {
     }
 
     var time = hour + ":" + minutes;
-
+    currentTime = time;
     document.querySelector('.date').textContent = fullDate;
     document.querySelector('.time').textContent = time;
 
@@ -320,7 +320,7 @@ function getWeather() {
            console.log(data);
         //    var showme = data.city.name;
         //   console.log(showme);
-        //getcurrentTemp(data);
+        getcurrentTemp(data); 
         
         //created a global variable called currentTime
         // that is only supposed to be used for finding the current weather.
@@ -337,8 +337,13 @@ function getcurrentTemp(data){
     //need to parse currentTime, then compare it to the time derived by 'data'
     // this can be done with if statements, or a for loop
 var currentTemp = data.list[0].main.temp;
+var parsed = currentTime.split("");
+var weatherTime= data.list[0].dt_txt;
+var wp = weatherTime.split("");
 
-console.log(currentTime); 
+
+console.log(wp[11]+wp[12]); 
+console.log(parsed[0]+ parsed[1]);
 }
 
 function getHighTemp(data){
