@@ -336,19 +336,46 @@ getWeather();
 function getcurrentTemp(data){
     //need to parse currentTime, then compare it to the time derived by 'data'
     // this can be done with if statements, or a for loop
-var currentTemp = data.list[0].main.temp;
+
+
+
+
+ 
+
+
+for(var i = 0; i<=7; i++){
+var currentTemp = data.list[i].main.temp; 
+   
 var parsed = currentTime.split("");
-var weatherTime= data.list[0].dt_txt;
+//this is the parsed current time
+var weatherTime= data.list[i].dt_txt;
 var wp = weatherTime.split("");
+//this is the parsed weather time
+
+wp = wp[11]+wp[12];
+parsed = parsed[0]+parsed[1];
+
+if(parsed <= wp && parsed >= wp-3){
+    //checking to see if the time is in bounds.
+    
+    document.querySelector(".temp-current").textContent=currentTemp;
+   
+    //this should work...
+    // but its not making sense.
+
+}
+
+ 
+}
 
 
-console.log(wp[11]+wp[12]); 
-console.log(parsed[0]+ parsed[1]);
+console.log(parsed);
 }
 
 function getHighTemp(data){
 // to find the high and low, shift through the list and 
 // and search for the max and min temps for that day, then display data.
+
 
 }
 function getLowTemp(data){
