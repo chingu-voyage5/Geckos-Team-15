@@ -302,3 +302,56 @@ function closeWeather() {
 
 
 
+
+
+var appid='3a6414f1f3e45ed94cceb03c4ada1795';
+var id = 3882428;
+
+function getWeather() {
+ 
+   var url = 'https://api.openweathermap.org/data/2.5/forecast?' + 'id=' + id + '&appid=' + appid;
+   
+   var req = new Request(url);
+   console.log(url);
+   
+   fetch(req)
+       .then((resp) => resp.json())
+       .then(function (data) {
+           console.log(data);
+        //    var showme = data.city.name;
+        //   console.log(showme);
+        //getcurrentTemp(data);
+        
+        //created a global variable called currentTime
+        // that is only supposed to be used for finding the current weather.
+
+        
+           
+       });
+}
+
+getWeather();
+
+
+function getcurrentTemp(data){
+    //need to parse currentTime, then compare it to the time derived by 'data'
+    // this can be done with if statements, or a for loop
+var currentTemp = data.list[0].main.temp;
+
+console.log(currentTime); 
+}
+
+function getHighTemp(data){
+// to find the high and low, shift through the list and 
+// and search for the max and min temps for that day, then display data.
+
+}
+function getLowTemp(data){
+
+}
+
+function getDescription(data){
+//the description depends on the currentTime variable. 
+//will return description of weather based on currentTime.
+}
+
