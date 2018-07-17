@@ -308,11 +308,25 @@ function closeWeather() {
 
 // var APPID='4147e888a6bdb065010896c60775dc6b';
 var appid = '3a6414f1f3e45ed94cceb03c4ada1795';
-var id = 3882428;
+// var lat = 34.01;
+// var long = -118.39;
+
+var lat, long;
+
+//note - this works but weather data loads slowly
+navigator.geolocation.getCurrentPosition(function(position) {
+        
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+        getWeather(lat,long)
+                    
+});
+
 
 function getWeather() {
-
-    var url = 'https://api.openweathermap.org/data/2.5/forecast?' + 'id=' + id + '&appid=' + appid;
+    console.log(lat);
+    console.log(long);
+    var url = 'https://api.openweathermap.org/data/2.5/forecast?' + 'lat=' + lat + '&lon=' + long + '&appid=' + appid + '&units=imperial';
 
     var req = new Request(url);
     console.log(url);
@@ -321,32 +335,34 @@ function getWeather() {
         .then((resp) => resp.json())
         .then(function (data) {
             console.log(data);
-            console.log(data.city.name);
+            var city = data.city.name;
 
+            for (var i=0; i<data.list.length; i++) {
 
+            }
+
+            var currentTemp = data.list[0].main.temp;
+            var icon = data.list[0].weather[0].icon;
+            var description = data.list[0].weather[0].description;
+
+            var weatherIcon = "wi-owm-" + icon;
+            var imgUrl = "<i class='wi " + weatherIcon + "'></i>"
+
+            console.log(currentTemp);
+            console.log(weatherIcon);
+            console.log(description);
 
         });
 }
 
-getWeather();
+
+// getWeather();
 
 
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(getLocation, errorFunction);
-} 
-
-function getLocation() {
-    
-    navigator.geolocation.getCurrentPosition(function (position) {
-        var lat = position.coords.latitude;
-        var long = position.coords.longitude;
-
-        console.log(lat);
-        console.log(long);
-    });
-}
-
-getLocation();
+// Set up conditional if browser does not offer geolocation
+// if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(getLocation, errorFunction);
+// } 
 
 
 
