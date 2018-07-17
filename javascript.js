@@ -168,6 +168,11 @@ var musicClicked = false;
 var title = playlist[currentSong].name;
 var artist = playlist[currentSong].artist;
 
+
+song.onended = function(){
+    next();
+}
+
 function playAudio() {
 
     updateTitle();
@@ -175,10 +180,12 @@ function playAudio() {
 
         playing = false;
         pauseMusic();
+        
 
     } else {
         playing = true;
-        playMusic();
+        playMusic(); 
+        
     }
 
 
