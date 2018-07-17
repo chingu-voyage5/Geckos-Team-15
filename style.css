@@ -291,7 +291,7 @@ a.newsAPI {
 
     color: rgba(255, 255, 255, 0.842);
     box-shadow: 0px 0px 3px black;
-    background-color: rgba(206, 144, 29, 0.822);
+    background-color: #2C5364;
     border-radius: 100%;
     height: 2.9rem;
     width: 2.9rem;
@@ -299,14 +299,16 @@ a.newsAPI {
 }
 
 .music-close-btn:hover {
-background-color: rgb(255, 112, 96);
+background-color: rgba(86, 158, 189, 0.808);
 }
 
 
  #player{ 
 
-    background: linear-gradient(rgba(255, 166, 0, 0.822), rgba(255, 209, 83, 0.932));
-
+    /* background: linear-gradient(rgba(255, 166, 0, 0.822), rgba(255, 209, 83, 0.932)); */
+    background: #0F2027;  
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); 
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
     border-radius: .5rem;
 
@@ -332,12 +334,12 @@ background-color: rgb(255, 112, 96);
     position: relative;
     border-style: inset;
     border-radius: .5rem;
-    border-top: .75rem solid rgba(255, 191, 71, 0.932);
-    border-bottom: .75rem solid rgba(255, 191, 71, 0.932);
-    border-left: .75rem solid rgba(252, 217, 152, 0.932);
-    border-right: .75rem solid rgba(252, 217, 152, 0.932);
+    border-top: .75rem solid  #203A43;
+    border-bottom: .75rem solid  #203A43;
+    border-left: .75rem solid #2C5364;
+    border-right: .75rem solid #2C5364;
     background-color: rgba(255, 255, 255, 0.952);
-    color: rgb(150, 66, 57);
+    color: #0F2027;
     
 }
 
@@ -355,7 +357,7 @@ background-color: rgb(255, 112, 96);
 #artist {
     font-family: 'Cutive Mono', monospace;
     letter-spacing: 3px;
-    color: rgb(255, 112, 96);
+    color: rgba(86, 158, 189, 0.808);
 }
 
 #buttonContainer{
@@ -370,20 +372,21 @@ background-color: rgb(255, 112, 96);
     -webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
     font-size: 3rem;
-    border: 1px solid rgba(214, 157, 52, 0.685);
-    
-    text-shadow: 1px 1px 1px rgba(202, 137, 15, 0.822);
+    /* border: 1px solid rgb(106, 115, 139); */
+    box-shadow: 1px 1px 1px #283048;
+    text-shadow: 1px 1px 1px #283048;
 
     margin: 4rem .25rem;
     /* color: rgb(211, 167, 153); */
-    color: white;
-   background-color: rgba(214, 157, 52, 0.685);
+    color: rgba(86, 158, 189, 0.808);
+   background-color: rgba(44, 83, 100, 0.808);
    padding: .5rem 1rem;
    border-radius: .5rem;
 }
 
 #play:hover,#next:hover,#pre:hover{
-    background-color: rgb(255, 112, 96);
+    background-color: rgba(86, 158, 189, 0.808);
+    color: rgba(44, 83, 100, 0.808);
 }
 
 
