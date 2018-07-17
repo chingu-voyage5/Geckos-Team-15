@@ -321,6 +321,7 @@ function getWeather() {
         //    var showme = data.city.name;
         //   console.log(showme);
         getcurrentTemp(data); 
+        getHighTemp(data);
         
         //created a global variable called currentTime
         // that is only supposed to be used for finding the current weather.
@@ -336,13 +337,6 @@ getWeather();
 function getcurrentTemp(data){
     //need to parse currentTime, then compare it to the time derived by 'data'
     // this can be done with if statements, or a for loop
-
-
-
-
- 
-
-
 for(var i = 0; i<=7; i++){
 var currentTemp = data.list[i].main.temp; 
    
@@ -357,12 +351,11 @@ parsed = parsed[0]+parsed[1];
 
 if(parsed <= wp && parsed >= wp-3){
     //checking to see if the time is in bounds.
-    
-    document.querySelector(".temp-current").textContent=currentTemp;
-   
-    //this should work...
-    // but its not making sense.
-
+   // console.log(i);//to make sure the time is set up correctly
+    var temp = currentTemp -273;
+    temp = temp*1.8 +32; 
+    temp = Math.floor(temp);
+    document.querySelector(".temp-current").textContent=temp;
 }
 
  
@@ -375,7 +368,18 @@ console.log(parsed);
 function getHighTemp(data){
 // to find the high and low, shift through the list and 
 // and search for the max and min temps for that day, then display data.
-
+for(var i = 0; i<=7; i++){
+    var maxList = []; 
+    maxList.push(data.list[i].main.temp_max);
+    
+}
+// console.log(Math.max(maxList));
+//console.log(maxList);
+maxList = Math.max(maxList);
+var temp = maxList-273; 
+temp = temp *1.8+32;
+temp = Math.floor(temp); 
+document.querySelector(".temp-high").textContent=Math.max(maxList);
 
 }
 function getLowTemp(data){
