@@ -331,5 +331,23 @@ function getWeather() {
 getWeather();
 
 
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getLocation, errorFunction);
+} 
+
+function getLocation() {
+    
+    navigator.geolocation.getCurrentPosition(function (position) {
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+
+        console.log(lat);
+        console.log(long);
+    });
+}
+
+getLocation();
+
+
 
 
