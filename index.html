@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="icons/style.css">
     <link rel="stylesheet" type="text/css" href="icons/style2.css">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -39,10 +40,10 @@
                     <i class="icon-svg602"></i>
                 </li>
                 <li class="feature-icon">
-                    <i onclick="slideMusic()" class="icon-svg1322"></i>
+                    <i class="icon-svg1322"></i>
                 </li>
                 <li class="feature-icon">
-                    <i class="icon-svg372" onclick="slideTask()"></i>
+                    <i class="icon-svg372" ></i>
                 </li>
                 <li class="feature-icon">
                     <i class="icon-svg142"></i>
@@ -57,24 +58,34 @@
         </div>
     </div>
 
-        
 
-<!-- Tasks, CODED BY TYRE -->
-<div id="taskContainer">
-   <div id="taskTitle">
-       <h1>Tasks</h1> 
-   </div>
-   <div id="taskInput">
-    <input type="text" id="userInput">
-    <!-- <i class="fas fa-plus" onclick="plus()"></i>  -->
-    <i class = "fas fa-plus" id="plus" onclick="plus()"></i>
-   </div>
-   <ul id="taskList"></ul> 
-    
+
+    <!-- Tasks, CODED BY TYRE -->
+    <div class="feature-tasks">
+
+        <div class="task-close-btn">
+            <i class="icon-svg54"></i>
+        </div>
+
+        <div id="taskContainer">
+
+
+            <div id="taskTitle">
+                <h1>Tasks</h1>
+            </div>
+
+            <div id="taskInput">
+                <input type="text" id="userInput" autofocus>
+                <i class="icon-svg59" id="plus" onclick="plus()"></i>
+            </div>
+
+            <ul id="taskList"></ul>
+
+        </div>
     </div>
-</div>
-  
-  
+    
+
+
     <!--NEWS, CODED BY NATALIE -->
 
 
@@ -125,6 +136,12 @@
 
     <!--MUSIC, CODED BY TYRE -->
 
+<div class="feature-music">
+
+    <div class="music-close-btn">
+        <i class="icon-svg54"></i>
+
+    </div>
 
     <div class="musicPlayer">
         <div id="myAudio">
@@ -168,6 +185,7 @@
     </div>
     </div>
 
+</div>
 
     <!--WEATHER, CODED BY NATALIE & TYRE -->
 

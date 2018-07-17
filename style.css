@@ -269,19 +269,9 @@ a.newsAPI {
 
 /* Music player styling ---------------------- */
 
- #player{ 
-
-    background: linear-gradient(rgba(255, 166, 0, 0.822), rgba(255, 191, 71, 0.932));
-
-    box-shadow: 1px 1px 5px rgb(0, 0, 0);
-    border-radius: .5rem;
-
-    /* position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem; */
-
+.feature-music {
     position: fixed;
-    bottom: 1.5rem;
+    bottom: 0rem;
     right: -30rem;
     
     transition: all .8s;
@@ -289,8 +279,41 @@ a.newsAPI {
     -moz-transition: all .8s;
     
     transition-timing-function: cubic-bezier(.25,.1,.25,1);
+}
 
+.music-close-btn {
+    font-size: 3rem;
+    position: absolute;
+    /* position: fixed; */
+
+    bottom: 18rem;
+    right: .5rem;
+
+    color: rgba(255, 255, 255, 0.842);
+    box-shadow: 0px 0px 3px black;
+    background-color: rgba(206, 144, 29, 0.822);
+    border-radius: 100%;
+    height: 2.9rem;
+    width: 2.9rem;
     z-index: 999;
+}
+
+.music-close-btn:hover {
+background-color: rgb(255, 112, 96);
+}
+
+
+ #player{ 
+
+    background: linear-gradient(rgba(255, 166, 0, 0.822), rgba(255, 209, 83, 0.932));
+
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    border-radius: .5rem;
+
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+
     
     width: 28.5rem;
     height: 18rem;
@@ -303,24 +326,28 @@ a.newsAPI {
 }  
 
 .title-artist {
-    width: 100%;
+    width: 90%;
     margin: 1.5rem auto;
     height: 10rem;
     position: relative;
-
+    border-style: inset;
+    border-radius: .5rem;
+    border-top: .75rem solid rgba(255, 191, 71, 0.932);
+    border-bottom: .75rem solid rgba(255, 191, 71, 0.932);
+    border-left: .75rem solid rgba(252, 217, 152, 0.932);
+    border-right: .75rem solid rgba(252, 217, 152, 0.932);
     background-color: rgba(255, 255, 255, 0.952);
-    color: #47D6C0;
-    
+    color: rgb(150, 66, 57);
     
 }
 
 
 .center-song {
     position: absolute;
-    top: 18%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    letter-spacing: .5rem;
+    letter-spacing: 1px;
     width: 100%;
 }
 
@@ -328,6 +355,7 @@ a.newsAPI {
 #artist {
     font-family: 'Cutive Mono', monospace;
     letter-spacing: 3px;
+    color: rgb(255, 112, 96);
 }
 
 #buttonContainer{
@@ -342,14 +370,20 @@ a.newsAPI {
     -webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
     font-size: 3rem;
+    border: 1px solid rgba(214, 157, 52, 0.685);
     
-    margin: 4rem 1rem;
+    text-shadow: 1px 1px 1px rgba(202, 137, 15, 0.822);
+
+    margin: 4rem .25rem;
+    /* color: rgb(211, 167, 153); */
     color: white;
-   
+   background-color: rgba(214, 157, 52, 0.685);
+   padding: .5rem 1rem;
+   border-radius: .5rem;
 }
 
 #play:hover,#next:hover,#pre:hover{
-    color: rgba(184, 120, 3, 0.89);
+    background-color: rgb(255, 112, 96);
 }
 
 
@@ -362,7 +396,7 @@ a.newsAPI {
 #songTitle{
     text-align: center;
     padding-bottom: .5rem;
-    font-size: 2.3rem;
+    font-size: 2rem;
     text-transform: uppercase;
 
 }
@@ -373,61 +407,159 @@ a.newsAPI {
 
 /* Task list styling ----------------------*/
 
-.fa-plus{
+.feature-tasks {
+    position: fixed;
+    top: 0;
+    right: -30rem;
     
-    border-style: solid;
-    border-width: .5rem;
-    padding: 1rem 2rem 1.1rem 2rem;
-    font-size: 2rem;
-    background-color: rgb(255, 148, 136) ;
+    width: 30rem;
 
+    transition: all .8s;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    
+    transition-timing-function: cubic-bezier(.25,.1,.25,1);
 }
+
+.task-close-btn {
+    font-size: 3rem;
+    position: absolute;
+    /* position: fixed; */
+    z-index: 99;
+    
+
+    top: .5rem;
+    right: .5rem;
+    color: rgba(255, 255, 255, 0.829);
+    box-shadow: 0px 0px 3px black;
+    background-color: rgb(252, 76, 56);
+    border-radius: 100%;
+    height: 2.9rem;
+    width: 2.9rem;
+    
+}
+
+.task-close-btn:hover {
+background-color: rgba(255, 166, 0, 0.753);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.icon-svg59 {
+    /* border: .25rem solid white; */
+    font-size: 2rem;
+    background-color: rgb(255, 112, 96) ;
+    width: 15%;
+    height: 5rem;
+    float: left;
+    text-align: center;
+    line-height: 5rem;
+    border-top: .25rem solid white;
+    border-bottom: .25rem solid white;
+    border-right: .25rem solid white;
+    border-left: 0;
+}
+
+.icon-svg59:hover {
+    background-color: rgba(253, 199, 83, 0.884);
+}
+
 #userInput{
-width: 28rem;
-height: 5rem;
-border-style: solid;
-border-width: .5rem;
-border-color: white;
-background-color:rgba(187, 187, 187, .01);
-font-size: 2rem;
-color: white;
+    width: 85%;
+    height: 5rem;
+    border: .25rem solid white;
+    background-color:rgba(124, 124, 124, 0.24);
+    /* text-shadow: 1px 1px 1px grey; */
+    font-size: 2rem;
+    /* color: rgb(255, 112, 96); */
+    color: white;
+    float: left;
+    padding: .5rem;
+    font-family: 'Cutive Mono', monospace;
+    
 }
+
 
 #taskContainer{
+    border-radius: .5rem;
+    min-height: 40rem;
+
+    overflow: hidden;
     padding: 0;
-    background-color: rgba(187, 187, 187, 0.4);
+    background-color: rgba(255, 255, 255, 0.699);
     position: absolute;
-    top: 3rem;
-    right: 2rem;
-    z-index: 999;
-    width: 35rem;
+    
+    top: 1.5rem;
+    right: 1.5rem;
+
+    width: 28.5rem;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
     
 }
+
 #taskTitle{    
-    background-color: rgb(255, 148, 136) ;
-    padding: 1rem;
+    background: linear-gradient(rgb(255, 148, 136),rgb(253, 176, 167));
     text-align: center;
-    font-family: 'Cutive Mono', monospace;
+    font-family: 'Roboto', sans-serif;
+}
+
+#taskTitle h1 {
     font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    padding: 1.1rem 0;
+}
+
+#taskList {
+    margin-top: 5rem;
+    color: rgba(83, 68, 68, 0.37);
+
 }
 
 #taskList li{
  cursor: pointer;
   position: relative;
-  padding: .5rem;
+  padding: .75rem;
+  padding-left: 1.5rem;
+  padding-right: 4rem;
   list-style-type: none;
-  font-size: 18px;
-  transition: 0.2s;
-  text-align: center;
+  font-size: 2rem;
+  /* text-shadow: 1px 1px 3px grey; */
+  
+  /* text-align: center; */
   font-family: 'Cutive Mono', monospace;
-  font-size:  3rem;
+
+  max-width: 28.5rem;
+
+  /* overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal !important; */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 1px;
+  font-weight: bold;
+  
 }
 
 .fa-trash-alt {
     position: absolute;
-    right: 0;
-    font-size: 3rem;
-  }
+    right: 1.5rem;
+    color: rgb(252, 81, 62);
+    font-size: 1.5rem;
+    height: 1;
+    
+}
+
+.fa-trash-alt:hover {
+    color: rgba(253, 199, 83, 0.884);
+}
+
 
 /* Weather app styling ----------------------*/
 
@@ -523,7 +655,7 @@ background-color: rgba(255, 166, 0, 0.822);
 .upper-weather {
     background-color: rgba(255, 255, 255, 0.842);
     color: #47D6C0;
-    display: inline-block;
+    /* display: inline-block; */
     width: 50%;
     float: left;
     height: 100%;
