@@ -172,7 +172,7 @@ var artist = playlist[currentSong].artist;
 song.onended = function(){
     next();
 }
-
+updateTitle();
 function playAudio() {
 
     updateTitle();
