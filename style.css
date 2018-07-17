@@ -299,13 +299,13 @@ a.newsAPI {
 }
 
 .music-close-btn:hover {
-background-color: rgba(252, 210, 96, 0.822);
+background-color: rgb(255, 112, 96);
 }
 
 
  #player{ 
 
-    background: linear-gradient(rgba(255, 166, 0, 0.822), rgba(255, 191, 71, 0.932));
+    background: linear-gradient(rgba(255, 166, 0, 0.822), rgba(255, 209, 83, 0.932));
 
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
     border-radius: .5rem;
@@ -326,23 +326,28 @@ background-color: rgba(252, 210, 96, 0.822);
 }  
 
 .title-artist {
-    width: 100%;
+    width: 90%;
     margin: 1.5rem auto;
     height: 10rem;
     position: relative;
-
+    border-style: inset;
+    border-radius: .5rem;
+    border-top: .75rem solid rgba(255, 191, 71, 0.932);
+    border-bottom: .75rem solid rgba(255, 191, 71, 0.932);
+    border-left: .75rem solid rgba(252, 217, 152, 0.932);
+    border-right: .75rem solid rgba(252, 217, 152, 0.932);
     background-color: rgba(255, 255, 255, 0.952);
-    color: #47D6C0;
+    color: rgb(150, 66, 57);
     
 }
 
 
 .center-song {
     position: absolute;
-    top: 18%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    letter-spacing: .5rem;
+    letter-spacing: 1px;
     width: 100%;
 }
 
@@ -350,6 +355,7 @@ background-color: rgba(252, 210, 96, 0.822);
 #artist {
     font-family: 'Cutive Mono', monospace;
     letter-spacing: 3px;
+    color: rgb(255, 112, 96);
 }
 
 #buttonContainer{
@@ -364,14 +370,20 @@ background-color: rgba(252, 210, 96, 0.822);
     -webkit-transition-duration: 0.4s; 
     transition-duration: 0.4s;
     font-size: 3rem;
+    border: 1px solid rgba(214, 157, 52, 0.685);
     
-    margin: 4rem 1rem;
+    text-shadow: 1px 1px 1px rgba(202, 137, 15, 0.822);
+
+    margin: 4rem .25rem;
+    /* color: rgb(211, 167, 153); */
     color: white;
-   
+   background-color: rgba(214, 157, 52, 0.685);
+   padding: .5rem 1rem;
+   border-radius: .5rem;
 }
 
 #play:hover,#next:hover,#pre:hover{
-    color: rgba(184, 120, 3, 0.89);
+    background-color: rgb(255, 112, 96);
 }
 
 
@@ -384,7 +396,7 @@ background-color: rgba(252, 210, 96, 0.822);
 #songTitle{
     text-align: center;
     padding-bottom: .5rem;
-    font-size: 2.3rem;
+    font-size: 2rem;
     text-transform: uppercase;
 
 }
