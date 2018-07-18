@@ -267,6 +267,9 @@ function plus() {
     span.appendChild(txt);
     li.appendChild(span);
 
+
+
+
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function () {
             var div = this.parentElement;
@@ -284,6 +287,7 @@ for (i = 0; i < myNodelist.length; i++) {
     span.className = "fas fa-trash-alt";
     span.appendChild(txt);
     myNodelist[i].appendChild(span);
+
 }
 
 var close = document.getElementsByClassName("fas fa-trash-alt");
