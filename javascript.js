@@ -416,22 +416,22 @@ function getForecast() {
 
             }
 
-            var currentTemp = data.list[0].main.temp;
-            var icon = data.list[0].weather[0].icon;
-            var description = data.list[0].weather[0].description;
+            // var currentTemp = data.list[0].main.temp;
+            // var icon = data.list[0].weather[0].icon;
+            // var description = data.list[0].weather[0].description;
 
-            var weatherIcon = "wi-owm-" + icon;
-            var imgUrl = "<i class='wi " + weatherIcon + "'></i>"
+            // var weatherIcon = "wi-owm-" + icon;
+            // var imgUrl = "<i class='wi " + weatherIcon + "'></i>"
 
-            console.log(currentTemp);
-            console.log(weatherIcon);
-            console.log(description);
+            // console.log(currentTemp);
+            // console.log(weatherIcon);
+            // console.log(description);
 
 
 
             //    var showme = data.city.name;
             //   console.log(showme);
-            getcurrentTemp(data);
+            // getcurrentTemp(data);
             getHighTemp(data);
 
             //created a global variable called currentTime
@@ -446,7 +446,7 @@ function getForecast() {
 // getWeather();
 
 
-
+//note, this function is not doing anything right now -- disable due to current weather api addition
 
 function getcurrentTemp(data) {
     //need to parse currentTime, then compare it to the time derived by 'data'
