@@ -29,6 +29,20 @@ function getDateTime() {
 
     var fullDate = dayNames[day] + " " + monthNames[month] + " " + date + ", " + year;
 
+
+    var dayName = document.querySelectorAll('.weather-day')
+    for (var i = 0; i <= 4; i++) {
+
+        dayName[i].innerHTML = dayNames[day];
+
+        if (day < 6) {
+            day += 1;
+        } else if (day === 6) {
+            day = 0;
+        }
+
+    }
+
     var hour = currentDate.getHours();
 
     if (hour < 10) {
@@ -44,6 +58,9 @@ function getDateTime() {
     }
 
     var time = hour + ":" + minutes;
+
+    //I think we can set this to hour instead of time, and parsing it later
+    currentTime = time;
 
     document.querySelector('.date').textContent = fullDate;
     document.querySelector('.time').textContent = time;
@@ -320,11 +337,91 @@ function closeWeather() {
 
 // var APPID='4147e888a6bdb065010896c60775dc6b';
 var appid = '3a6414f1f3e45ed94cceb03c4ada1795';
-var id = 3882428;
+
+var lat = 34.01;
+var long = -118.39;
+
+// var lat, long;
+
+
+// Set up conditional if browser does not offer geolocation
+// if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(getLocation, errorFunction);
+// } 
+
+//note - this works but weather data loads slowly
+
+navigator.geolocation.getCurrentPosition(function (position) {
+
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+
+
+    getWeather(lat, long);
+    getForecast(lat, long);
+
+});
+
+// getWeather();
+// getForecast();
+
 
 function getWeather() {
+    console.log(lat);
+    console.log(long);
+    var url = 'https://api.openweathermap.org/data/2.5/weather?' + 'lat=' + lat + '&lon=' + long + '&appid=' + appid + '&units=imperial';
+    
 
-    var url = 'https://api.openweathermap.org/data/2.5/forecast?' + 'id=' + id + '&appid=' + appid;
+
+    var req = new Request(url);
+    console.log(url);
+
+    fetch(req)
+        .then((resp) => resp.json())
+        .then(function (dataCurrent) {
+            console.log(dataCurrent);
+
+            var city = dataCurrent.name;
+            var currentTemp = dataCurrent.main.temp;
+            var currentMax = dataCurrent.main.temp_max;
+            var currentMin = dataCurrent.main.temp_min;
+
+            var icon = dataCurrent.weather[0].id;
+            var description = dataCurrent.weather[0].description;
+
+            var weatherIcon = "wi-owm-" + icon;
+            var imgUrl = "<i class='wi " + weatherIcon + "'></i>"
+
+            console.log(currentTemp);
+            console.log(currentMax);
+            console.log(currentMin);
+            console.log(weatherIcon);
+            console.log(description);
+
+            var cityName = document.querySelectorAll('.city-name')
+
+            for (var i=0; i<5; i++){
+                cityName[i].innerHTML = city;
+            }
+
+            
+
+
+            document.querySelector('.temp-current').innerHTML = Math.round(currentTemp) + "&#176;";
+            
+            // document.querySelector('.temp-high').innerHTML = 'H:' + Math.round(currentMax) + "&#176;";
+            // document.querySelector('.temp-low').innerHTML = 'L:' + Math.round(currentMin) + "&#176;";
+            
+            document.querySelector('.weather-icon').innerHTML = imgUrl;
+            document.querySelector('.weather-description').innerHTML = description;
+
+
+        });
+}
+
+
+function getForecast() {
+    var url = 'https://api.openweathermap.org/data/2.5/forecast?' + 'lat=' + lat + '&lon=' + long + '&appid=' + appid + '&units=imperial';
 
     var req = new Request(url);
     console.log(url);
@@ -333,33 +430,139 @@ function getWeather() {
         .then((resp) => resp.json())
         .then(function (data) {
             console.log(data);
-            console.log(data.city.name);
 
+            var city = data.city.name;
+
+            getHighLowTemp(data);
+            updateForecast();
 
 
         });
 }
 
-getWeather();
+
+// getWeather();
 
 
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(getLocation, errorFunction);
-} 
-
-function getLocation() {
+var dailyHighs = [];
+var dailyImg=[];
+var dailyDesc=[];
     
-    navigator.geolocation.getCurrentPosition(function (position) {
-        var lat = position.coords.latitude;
-        var long = position.coords.longitude;
+var dailyLows = [];
 
-        console.log(lat);
-        console.log(long);
-    });
+
+function getHighLowTemp(data) {
+    // to find the high and low, shift through the list and 
+    // and search for the max and min temps for that day, then display data.
+
+    //cycle through each day of the forecast 
+    
+    for (var j = 0; j < 33; j+= 8) {
+
+        //holds values of the 8 iterations
+        var maxList = [];
+        var descList = [];
+        var imgList = [];
+        
+        var minList = [];
+        
+
+        //cycle through
+        for (var i = 0; i <= 7; i++) {
+            var loop = i + j;
+
+            console.log(loop);
+            
+            //will hold the max temp for this iteration
+            var maxNum = data.list[loop].main.temp_max;
+            maxList.push(maxNum);
+
+            var description = data.list[loop].weather[0].description;
+            descList.push(description);
+
+            var image = data.list[loop].weather[0].id;
+            imgList.push(image);
+
+
+
+            //will hold the min temp for this iteration
+            var minNum = data.list[loop].main.temp_min;
+            minList.push(minNum);
+            
+        }
+
+        console.log(maxList);
+        console.log(minList);
+    
+        //hold highest temperature among  8 entries
+        var tempHigh = Math.max(...maxList);
+
+        //what is the index of the hightemp in the maxList
+        var index = maxList.indexOf(tempHigh);
+        console.log(index);
+        
+        //what is the image associated with the highest temp
+        var imgHigh = imgList[index];
+        console.log(imgHigh);
+
+        //what is the descritpion associated with the highest temp
+        var descHigh = descList[index];
+        console.log(descHigh);
+
+        console.log(tempHigh);
+        dailyHighs.push(tempHigh);
+        dailyImg.push(imgHigh);
+        dailyDesc.push(descHigh);
+
+
+        //need to reset teh var for next loop so they are not included in next batch?
+        maxList=[];
+        descList = [];
+        imgList = [];
+
+
+        //hold lowest temperature among  8 entries
+        var tempLow = Math.min(...minList);
+        console.log(tempLow);
+        dailyLows.push(tempLow);
+        minList=[];
+    }
+
+     
+    console.log(dailyHighs);
+    console.log(dailyImg);
+    console.log(dailyDesc);
+    //capture the daily highs that will show on screen
+    console.log(dailyLows);
+    
 }
 
-getLocation();
+function updateForecast() {
 
+    var iconUI = document.querySelectorAll('.weather-icon-forecast')
+    var descUI = document.querySelectorAll('.weather-description-forecast')
+    var highUI = document.querySelectorAll('.temp-high-forecast')
+    var lowUI = document.querySelectorAll('.temp-low-forecast')
+
+    
+    
+    for (var i = 0; i <= 3; i++) {
+        
+        // var weatherIcon = "wi-owm-" + icon;
+        // var imgUrl = "<i class='wi " + weatherIcon + "'></i>"
+
+        iconUI[i].innerHTML = "<i class='wi " + "wi-owm-" + dailyImg[i+1] + "'></i>";
+        
+        //adding 1 so we get the forecast for tomorrow first
+        descUI[i].innerHTML = dailyDesc[i+1];
+        highUI[i].innerHTML = 'H:' + Math.round(dailyHighs[i+1]) + "&#176;";
+        lowUI[i].innerHTML = 'L:' + Math.round(dailyLows[i+1]) + "&#176;";
+        
+
+    }
+
+}
+    
 
 
 
