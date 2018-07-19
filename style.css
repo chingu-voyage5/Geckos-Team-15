@@ -637,19 +637,33 @@ background-color: rgba(255, 166, 0, 0.822);
     
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    font-size: 2rem;
-    padding: 1.1rem 0;
+    font-size: 1.75rem;
+    padding: 1rem 0;
     text-transform: uppercase;
     letter-spacing: .5rem;
 }
 
+.city-name {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: .25rem 0;
+    background-color: rgb(209, 243, 237);
+}
+
 .temp-current {
-    font-size: 7rem;
-    line-height: 6rem;
+    font-size: 6rem;
+    line-height: 5rem;
 }
 
 .high-low-temp {
     font-size: 2rem;
+    display: block;
+   font-weight: bold;
+    
+}
+
+.high-low-temp-forecast {
+    font-size: 3rem;
     display: block;
    font-weight: bold;
     
@@ -663,7 +677,7 @@ background-color: rgba(255, 166, 0, 0.822);
     float: left;
     height: 100%;
     text-align: center;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     
 }
 
@@ -671,7 +685,7 @@ background-color: rgba(255, 166, 0, 0.822);
     float: left;
     width: 50%;
     text-align: center;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     height: 100%;
     background-color: #E8F3F1;
 
@@ -681,12 +695,15 @@ background-color: rgba(255, 166, 0, 0.822);
     font-size: 1.5rem;
     text-align: center;
     color: #47D6C0;
-    
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    padding: 0 .5rem;
 }
 
 .weather-icon {
     font-size: 6rem;
     color: #47D6C0;
+    height: 6.5rem;
     
 } 
 
