@@ -249,8 +249,8 @@ function closeTasks() {
 
 
 function plus() {
-
     var li = document.createElement("li");
+
     var inputValue = document.getElementById("userInput").value;
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
@@ -279,6 +279,8 @@ function plus() {
 };
 
 
+
+
 var myNodelist = document.getElementsByClassName("task");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
@@ -287,8 +289,10 @@ for (i = 0; i < myNodelist.length; i++) {
     span.className = "fas fa-trash-alt";
     span.appendChild(txt);
     myNodelist[i].appendChild(span);
+    store();
 
 }
+
 
 var close = document.getElementsByClassName("fas fa-trash-alt");
 var i;
