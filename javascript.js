@@ -435,7 +435,7 @@ function getForecast() {
 
             getHighLowTemp(data);
             updateForecast();
-
+            
 
         });
 }
@@ -444,19 +444,21 @@ function getForecast() {
 // getWeather();
 
 
-var dailyHighs = [];
+// var dailyHighs = [];
 var dailyImg=[];
 var dailyDesc=[];
     
-var dailyLows = [];
+// var dailyLows = [];
 
+var maxlist=[];
+var minlist=[];
 
 function getHighLowTemp(data) {
 
-    var maxlist=[];
+    
     var tempmax=[];
     var tempmin=[];
-    var minList=[];
+    
     console.log(data);
     //console.log(data.list.length);
     for(var i = data.list.length-1; i>=0; i--){
@@ -464,16 +466,16 @@ function getHighLowTemp(data) {
         tempmax.push(data.list[i].main.temp_max);
         tempmin.push(data.list[i].main.temp_min);        
     };
-    maxlist = reverse(tempmax);
-    minList = reverse(tempmin);
+    maxlist = reverse(tempmax, true, data);
+    minlist = reverse(tempmin, false, data);
     
-    console.log(maxlist); 
-    console.log(minList);
+
+     console.log(maxlist); 
+     console.log(minlist);
+
+    
 
 
-
-
-s
 
 
 
@@ -558,7 +560,7 @@ s
     //     dailyDesc.push(descHigh);
 
 
-    //     //need to reset teh var for next loop so they are not included in next batch?
+    //     //need to reset the var for next loop so they are not included in next batch?
     //     maxList=[];
     //     descList = [];
     //     imgList = [];
@@ -579,35 +581,88 @@ s
      //console.log(dailyLows[0]);
     
 }
-function reverse(HL){
-    var correctOrderOfHighLows = [];
-    for(var i = HL.length-1; i>=0; i--){
-        correctOrderOfHighLows.push(HL[i]);
-    };
-    return correctOrderOfHighLows; 
+function reverse(HL, eitherOr, data){
+    var holder = [];
+    var HighLowByDay =[];
+    var maxMinlength = HL.length-1;
+    var remainder = maxMinlength%8;
+    var loop = maxMinlength - remainder;
+    var imgList = []; 
+    var descList = [];
+    var index;
+    
+    
+        for(var i = 0; i<loop; i+=8){  
+           for(j = 0; j<8+i; j++){
+               holder.push(HL[j]); 
+               
+                image = data.list[j].weather[0].id;
+                imgList.push(image);
+                
+                
+           };
+
+           if(eitherOr){
+
+               var tempHL = Math.max(...holder);
+                index = holder.indexOf(tempHL);
+           }else{
+               var tempHL= Math.min(...holder);
+               index = holder.indexOf(tempHL);
+
+            }
+
+           if(index<=maxMinlength){
+            var description = data.list[index-1].weather[0].description;
+            descList.push(description);
+            
+            var image = data.list[index-1].weather[0].id;
+            imgList.push(image);
+             }
+             
+             
+           HighLowByDay.push(tempHL);
+            dailyDesc.push(descList);
+            dailyImg.push(imgList);
+           //console.log(imgList[0]);
+            //console.log(descList);
+            console.log(dailyImg[0][0]);
+            imgList=[];
+            descList=[];
+            
+         
+           
+        };
+   
+         
+    return HighLowByDay; 
 };
 
 function updateForecast() {
 
-    var iconUI = document.querySelectorAll('.weather-icon-forecast')
-    var descUI = document.querySelectorAll('.weather-description-forecast')
-    var highUI = document.querySelectorAll('.temp-high-forecast')
-    var lowUI = document.querySelectorAll('.temp-low-forecast')
+    var iconUI = document.querySelectorAll('.weather-icon-forecast');
+    var descUI = document.querySelectorAll('.weather-description-forecast');
+    var highUI = document.querySelectorAll('.temp-high-forecast');
+    var lowUI = document.querySelectorAll('.temp-low-forecast');
 
     
     
-    for (var i = 0; i <= 3; i++) {
-        
+    //document.querySelector('.temp-high-forecast').innerHTML = Math.round(maxlist[0]) + "&#176;";
+    for (var i = 3; i>= 0; i--) {
+       
+        console.log(maxlist[i]);
         // var weatherIcon = "wi-owm-" + icon;
         // var imgUrl = "<i class='wi " + weatherIcon + "'></i>"
+         iconUI[i].innerHTML = "<i class='wi " + "wi-owm-" + dailyImg[i][i] + "'></i>";
+        highUI[i].innerHTML = 'H: ' + Math.round(maxlist[i]) + "&#176;";
+        
+        lowUI[i].innerHTML = 'L:' + Math.round(minlist[i]) + "&#176;";
 
-        iconUI[i].innerHTML = "<i class='wi " + "wi-owm-" + dailyImg[i+1] + "'></i>";
+       
         
         //adding 1 so we get the forecast for tomorrow first
-        descUI[i].innerHTML = dailyDesc[i+1];
-        highUI[i].innerHTML = 'H:' + Math.round(dailyHighs[i+1]) + "&#176;";
-        lowUI[i].innerHTML = 'L:' + Math.round(dailyLows[i+1]) + "&#176;";
-
+        descUI[i].innerHTML = dailyDesc[i];
+        
     }
 }
     
