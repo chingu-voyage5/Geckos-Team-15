@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
     <link rel="stylesheet" type="text/css" href="icons/style.css">
     <link rel="stylesheet" type="text/css" href="icons/style2.css">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -43,7 +44,7 @@
                     <i class="icon-svg1322"></i>
                 </li>
                 <li class="feature-icon">
-                    <i class="icon-svg372" ></i>
+                    <i class="icon-svg372"></i>
                 </li>
                 <li class="feature-icon">
                     <i class="icon-svg142"></i>
@@ -83,7 +84,7 @@
 
         </div>
     </div>
-    
+
 
 
     <!--NEWS, CODED BY NATALIE -->
@@ -136,56 +137,56 @@
 
     <!--MUSIC, CODED BY TYRE -->
 
-<div class="feature-music">
+    <div class="feature-music">
 
-    <div class="music-close-btn">
-        <i class="icon-svg54"></i>
-
-    </div>
-
-    <div class="musicPlayer">
-        <div id="myAudio">
-            <audio id="Clair de Lune.mp3">
-                <source src="Music_Files/Clair de Lune.mp3" type="audio/mp3">
-            </audio>
-            <audio id="Chad_Crouch_-_European_Starling.mp3">
-                <source src="Music_Files/Chad_Crouch_-_European_Starling.mp3" type="audio/mp3">
-            </audio>
-            <audio id="Chad_Crouch_-_Osprey.mp3">
-                <source src="Music_Files/Chad_Crouch_-_Osprey.mp3" type="audio/mp3">
-            </audio>
-            <audio id="Chad_Crouch_-_Raven.mp3">
-                <source src="Music_Files/Chad_Crouch_-_Raven.mp3" type="audio/mp3">
-            </audio>
-            <audio id="Chad_Crouch_-_Western_Tanager.mp3">
-                <source src="Music_Files/Chad_Crouch_-_Western_Tanager.mp3" type="audio/mp3">
-            </audio>
+        <div class="music-close-btn">
+            <i class="icon-svg54"></i>
 
         </div>
-        <div id="player">
-            <div class="title-artist">
-                <div class="center-song">
-                    <div id="songTitle"> </div>
-                    <span id="artist"> </span>
-                </div>
+
+        <div class="musicPlayer">
+            <div id="myAudio">
+                <audio id="Clair de Lune.mp3">
+                    <source src="Music_Files/Clair de Lune.mp3" type="audio/mp3">
+                </audio>
+                <audio id="Chad_Crouch_-_European_Starling.mp3">
+                    <source src="Music_Files/Chad_Crouch_-_European_Starling.mp3" type="audio/mp3">
+                </audio>
+                <audio id="Chad_Crouch_-_Osprey.mp3">
+                    <source src="Music_Files/Chad_Crouch_-_Osprey.mp3" type="audio/mp3">
+                </audio>
+                <audio id="Chad_Crouch_-_Raven.mp3">
+                    <source src="Music_Files/Chad_Crouch_-_Raven.mp3" type="audio/mp3">
+                </audio>
+                <audio id="Chad_Crouch_-_Western_Tanager.mp3">
+                    <source src="Music_Files/Chad_Crouch_-_Western_Tanager.mp3" type="audio/mp3">
+                </audio>
+
             </div>
+            <div id="player">
+                <div class="title-artist">
+                    <div class="center-song">
+                        <div id="songTitle"> </div>
+                        <span id="artist"> </span>
+                    </div>
+                </div>
 
-            <div id="musicButtons">
-                <!--remove button tags, add playlist of songs, change css, add transition: fade in, -->
-                <div id="buttonContainer">
-                    <i id="pre" class="icon-svg38" onclick="pre()"></i>
+                <div id="musicButtons">
+                    <!--remove button tags, add playlist of songs, change css, add transition: fade in, -->
+                    <div id="buttonContainer">
+                        <i id="pre" class="icon-svg38" onclick="pre()"></i>
 
-                    <i class="icon-svg39" id="play" onclick="playAudio()"></i>
+                        <i class="icon-svg39" id="play" onclick="playAudio()"></i>
 
-                    <i class="icon-svg43" id="next" onclick="next()"></i>
+                        <i class="icon-svg43" id="next" onclick="next()"></i>
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
-</div>
+    </div>
 
     <!--WEATHER, CODED BY NATALIE & TYRE -->
 
@@ -202,20 +203,20 @@
             <li class="daily-weather">
                 <div class="weather-info">
                     <h2 class="weather-day">Monday</h2>
+                    <h3 class="city-name">Los Angeles</h3>
                     <div class="upper-weather">
                         <div class="weather-icon">
-                            <i class="icon-svg592"></i>
                         </div>
                         <div class="weather-description">
                             cloudy with light wind
                         </div>
                     </div>
                     <div class="temperature">
-                        <div class="temp-current">78</div>
-                        <div class="high-low-temp">
+                        <div class="temp-current"></div>
+                        <!-- <div class="high-low-temp">
                             <div class="temp-high">H: 83 </div>
                             <div class="temp-low">L: 65 </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </li>
@@ -223,86 +224,94 @@
             <li class="daily-weather">
                 <div class="weather-info">
                     <h2 class="weather-day">Monday</h2>
+                    <h3 class="city-name">Los Angeles</h3>
+                    
                     <div class="upper-weather">
-                        <div class="weather-icon">
-                            <i class="icon-svg592"></i>
+                        <div class="weather-icon weather-icon-forecast">
                         </div>
-                        <div class="weather-description">
+                        <div class="weather-description weather-description-forecast">
                             cloudy with light wind
                         </div>
                     </div>
                     <div class="temperature">
-                        <div class="temp-current">78</div>
-                        <div class="high-low-temp">
-                            <div class="temp-high">H: 83 </div>
-                            <div class="temp-low">L: 65 </div>
+                        
+                        <div class="high-low-temp-forecast">
+                            <div class="temp-high-forecast">H: high </div>
+                            <div class="temp-low-forecast">L: low </div>
                         </div>
                     </div>
                 </div>
             </li>
 
+
             <li class="daily-weather">
                 <div class="weather-info">
                     <h2 class="weather-day">Monday</h2>
+                    <h3 class="city-name">Los Angeles</h3>
+                    
                     <div class="upper-weather">
-                        <div class="weather-icon">
-                            <i class="icon-svg592"></i>
+                        <div class="weather-icon weather-icon-forecast">
                         </div>
-                        <div class="weather-description">
+                        <div class="weather-description weather-description-forecast">
                             cloudy with light wind
                         </div>
                     </div>
                     <div class="temperature">
-                        <div class="temp-current">78</div>
-                        <div class="high-low-temp">
-                            <div class="temp-high">H: 83 </div>
-                            <div class="temp-low">L: 65 </div>
+                        
+                        <div class="high-low-temp-forecast">
+                            <div class="temp-high-forecast">H: 83 </div>
+                            <div class="temp-low-forecast">L: 65 </div>
                         </div>
                     </div>
                 </div>
             </li>
 
+
             <li class="daily-weather">
                 <div class="weather-info">
                     <h2 class="weather-day">Monday</h2>
+                    <h3 class="city-name">Los Angeles</h3>
+                    
                     <div class="upper-weather">
-                        <div class="weather-icon">
-                            <i class="icon-svg592"></i>
+                        <div class="weather-icon weather-icon-forecast">
                         </div>
-                        <div class="weather-description">
+                        <div class="weather-description weather-description-forecast">
                             cloudy with light wind
                         </div>
                     </div>
                     <div class="temperature">
-                        <div class="temp-current">78</div>
-                        <div class="high-low-temp">
-                            <div class="temp-high">H: 83 </div>
-                            <div class="temp-low">L: 65 </div>
+                        
+                        <div class="high-low-temp-forecast">
+                            <div class="temp-high-forecast">H: 83 </div>
+                            <div class="temp-low-forecast">L: 65 </div>
                         </div>
                     </div>
                 </div>
             </li>
 
+
             <li class="daily-weather">
                 <div class="weather-info">
                     <h2 class="weather-day">Monday</h2>
+                    <h3 class="city-name">Los Angeles</h3>
+                    
                     <div class="upper-weather">
-                        <div class="weather-icon">
-                            <i class="icon-svg592"></i>
+                        <div class="weather-icon weather-icon-forecast">
                         </div>
-                        <div class="weather-description">
+                        <div class="weather-description weather-description-forecast">
                             cloudy with light wind
                         </div>
                     </div>
                     <div class="temperature">
-                        <div class="temp-current">78</div>
-                        <div class="high-low-temp">
-                            <div class="temp-high">H: 83 </div>
-                            <div class="temp-low">L: 65 </div>
+                        
+                        <div class="high-low-temp-forecast">
+                            <div class="temp-high-forecast">H: 83 </div>
+                            <div class="temp-low-forecast">L: 65 </div>
                         </div>
                     </div>
                 </div>
             </li>
+
 
 
         </ul>
