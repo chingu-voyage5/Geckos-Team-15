@@ -448,11 +448,11 @@ function getForecast() {
 // getWeather();
 
 
-// var dailyHighs = [];
+var dailyHighs = [];
 var dailyImg=[];
 var dailyDesc=[];
     
-// var dailyLows = [];
+var dailyLows = [];
 
 var maxlist=[];
 var minlist=[];
@@ -460,22 +460,22 @@ var minlist=[];
 function getHighLowTemp(data) {
 
     
-    var tempmax=[];
-    var tempmin=[];
+    // var tempmax=[];
+    // var tempmin=[];
     
-    console.log(data);
-    //console.log(data.list.length);
-    for(var i = data.list.length-1; i>=0; i--){
-        //console.log(data.list[i].main.temp_max);
-        tempmax.push(data.list[i].main.temp_max);
-        tempmin.push(data.list[i].main.temp_min);        
-    };
-    maxlist = reverse(tempmax, true, data);
-    minlist = reverse(tempmin, false, data);
+    // console.log(data);
+    // //console.log(data.list.length);
+    // for(var i = data.list.length-1; i>=0; i--){
+    //     //console.log(data.list[i].main.temp_max);
+    //     tempmax.push(data.list[i].main.temp_max);
+    //     tempmin.push(data.list[i].main.temp_min);        
+    // };
+    // maxlist = reverse(tempmax, true, data);
+    // minlist = reverse(tempmin, false, data);
     
 
-     console.log(maxlist); 
-     console.log(minlist);
+    //  console.log(maxlist); 
+    //  console.log(minlist);
 
     
 
@@ -503,144 +503,155 @@ function getHighLowTemp(data) {
     // to find the high and low, shift through the list and 
     // and search for the max and min temps for that day, then display data.
     //cycle through each day of the forecast 
-    // console.log(data);
-    // for (var j = 0; j < 33; j+= 8) {
-    //     //console.log(j);
-    //     //holds values of the 8 iterations
-    //     var maxList = [];
-    //     var descList = [];
-    //     var imgList = []; 
+
+
+        var maxMinlength = data.list.length-1;
+    var remainder = maxMinlength%8;
+    var whole = maxMinlength - remainder;
+    console.log(data);
+    for (var j = 0; j < whole; j+= 8) {
+        console.log(j);
+        //holds values of the 8 iterations
+        var maxList = [];
+        var descList = [];
+        var imgList = []; 
         
-    //     var minList = [];
+        var minList = [];
         
 
-    //     //cycle through
-    //     for (var i = 0; i <= 7; i++) {
+        //cycle through
+        for (var i = 0; i <= remainder; i++) {
 
-    //         var loop = i + j;
+            var loop = i + j;
 
-    //         console.log(loop);
+            console.log(loop);
             
-    //         //will hold the max temp for this iteration
-    //         var maxNum = data.list[loop].main.temp_max;
-    //         maxList.push(maxNum);
+            //will hold the max temp for this iteration
+            var maxNum = data.list[loop].main.temp_max;
+            maxList.push(maxNum);
  
-    //         var description = data.list[loop].weather[0].description;
-    //         descList.push(description);
+            var description = data.list[loop].weather[0].description;
+            descList.push(description);
 
-    //         var image = data.list[loop].weather[0].id;
-    //         imgList.push(image);
+            var image = data.list[loop].weather[0].id;
+            imgList.push(image);
   
  
 
-    //         //will hold the min temp for this iteration
-    //         var minNum = data.list[loop].main.temp_min;
-    //         minList.push(minNum);
+            //will hold the min temp for this iteration
+            var minNum = data.list[loop].main.temp_min;
+            minList.push(minNum);
             
-    //     }
-    //     // console.log('hight');
-    //     //  console.log(maxList);
-    //     //  console.log('low');
-    //     //  console.log(minList);
+        }
+        // console.log('hight');
+        //  console.log(maxList);
+        //  console.log('low');
+        //  console.log(minList);
     
-    //     //hold highest temperature among  8 entries
-    //     var tempHigh = Math.max(...maxList);
+        //hold highest temperature among  8 entries
+        var tempHigh = Math.max(...maxList);
 
-    //     //what is the index of the hightemp in the maxList
-    //     var index = maxList.indexOf(tempHigh);
-    //     // console.log(index);
+        //what is the index of the hightemp in the maxList
+        var index = maxList.indexOf(tempHigh);
+        // console.log(index);
         
-    //     //what is the image associated with the highest temp
-    //     var imgHigh = imgList[index];
-    //     // console.log(imgHigh);
+        //what is the image associated with the highest temp
+        var imgHigh = imgList[index];
+        // console.log(imgHigh);
 
-    //     //what is the descritpion associated with the highest temp
-    //     var descHigh = descList[index];
-    //     // console.log(descHigh);
+        //what is the descritpion associated with the highest temp
+        var descHigh = descList[index];
+        // console.log(descHigh);
 
-    //     // console.log(tempHigh);
-    //     dailyHighs.push(tempHigh);
-    //     dailyImg.push(imgHigh);
-    //     dailyDesc.push(descHigh);
-
-
-    //     //need to reset the var for next loop so they are not included in next batch?
-    //     maxList=[];
-    //     descList = [];
-    //     imgList = [];
+        // console.log(tempHigh);
+        dailyHighs.push(tempHigh);
+        dailyImg.push(imgHigh);
+        dailyDesc.push(descHigh);
 
 
-    //     //hold lowest temperature among  8 entries
-    //     var tempLow = Math.min(...minList);
-    //     //console.log(tempLow);
-    //     dailyLows.push(tempLow);
-    //     minList=[];
-    // }
+        //need to reset the var for next loop so they are not included in next batch?
+        maxList=[];
+        descList = [];
+        imgList = [];
+
+
+        //hold lowest temperature among  8 entries
+        var tempLow = Math.min(...minList);
+        //console.log(tempLow);
+        dailyLows.push(tempLow);
+        minList=[];
+    }
 
      
-     //console.log(dailyHighs); 
-    // console.log(dailyImg);
-    //console.log(dailyDesc);
-    // //capture the daily highs that will show on screen
-     //console.log(dailyLows[0]);
+     console.log(dailyHighs); 
+    console.log(dailyImg);
+    console.log(dailyDesc);
+    //capture the daily highs that will show on screen
+     console.log(dailyLows[0]);
     
 }
-function reverse(HL, eitherOr, data){
-    var holder = [];
-    var HighLowByDay =[];
-    var maxMinlength = HL.length-1;
-    var remainder = maxMinlength%8;
-    var loop = maxMinlength - remainder;
-    var imgList = []; 
-    var descList = [];
-    var index;
+// function reverse(HL, eitherOr, data){
+//     var holder = [];
+//     var HighLowByDay =[];
+//     var maxMinlength = HL.length-1;
+//     var remainder = maxMinlength%8;
+//     var loop = maxMinlength - remainder;
+//     var imgList = []; 
+//     var descList = [];
+//     var index;
     
     
-        for(var i = 0; i<loop; i+=8){  
-           for(j = 0; j<8+i; j++){
-               holder.push(HL[j]); 
+//         for(var i = 0; i<loop; i+=8){  
+//            for(j = 0; j<8+i; j++){
+//                holder.push(HL[j]); 
                
-                image = data.list[j].weather[0].id;
-                imgList.push(image);
+//                 image = data.list[j].weather[0].id;
+//                 imgList.push(image);
+//            };
+
+//            if(eitherOr){
+
+//                var tempHL = Math.max(...holder);
+//                 index = holder.indexOf(tempHL);
                 
+//            }else{
+
+//                var tempHL= Math.min(...holder);
+//                index = holder.indexOf(tempHL);
+
+//             }
+//             console.log(index);
+//             if( index==0){
+//                 var description = data.list[index].weather[0].description;
+//                 descList.push(description);
                 
-           };
-
-           if(eitherOr){
-
-               var tempHL = Math.max(...holder);
-                index = holder.indexOf(tempHL);
-           }else{
-               var tempHL= Math.min(...holder);
-               index = holder.indexOf(tempHL);
-
-            }
-
-           if(index<=maxMinlength){
-            var description = data.list[index-1].weather[0].description;
-            descList.push(description);
+//                 var image = data.list[index].weather[0].id;
+//                 imgList.push(image);
+//                  }
+//            if(index<=maxMinlength && index>0){
+//             var description = data.list[index-1].weather[0].description;
+//             descList.push(description);
             
-            var image = data.list[index-1].weather[0].id;
-            imgList.push(image);
-             }
+//             var image = data.list[index-1].weather[0].id;
+//             imgList.push(image);
+//              }
              
              
-           HighLowByDay.push(tempHL);
-            dailyDesc.push(descList);
-            dailyImg.push(imgList);
-           //console.log(imgList[0]);
-            //console.log(descList);
-            console.log(dailyImg[0][0]);
-            imgList=[];
-            descList=[];
+//            HighLowByDay.push(tempHL);
+//             dailyDesc.push(descList);
+//             dailyImg.push(imgList);
+//            //console.log(imgList[0]);
+//             //console.log(descList);
+//             //console.log(dailyImg[0][0]);
+//             imgList=[];
+//             descList=[];
             
-         
            
-        };
+//         };
    
          
-    return HighLowByDay; 
-};
+//     return HighLowByDay; 
+// };
 
 function updateForecast() {
 
@@ -657,10 +668,10 @@ function updateForecast() {
         console.log(maxlist[i]);
         // var weatherIcon = "wi-owm-" + icon;
         // var imgUrl = "<i class='wi " + weatherIcon + "'></i>"
-         iconUI[i].innerHTML = "<i class='wi " + "wi-owm-" + dailyImg[i][i] + "'></i>";
-        highUI[i].innerHTML = 'H: ' + Math.round(maxlist[i]) + "&#176;";
+         iconUI[i].innerHTML = "<i class='wi " + "wi-owm-" + dailyImg[i] + "'></i>";
+        highUI[i].innerHTML = 'H: ' + Math.round(dailyHighs[i]) + "&#176;";
         
-        lowUI[i].innerHTML = 'L:' + Math.round(minlist[i]) + "&#176;";
+        lowUI[i].innerHTML = 'L:' + Math.round(dailyLows[i]) + "&#176;";
 
        
         
