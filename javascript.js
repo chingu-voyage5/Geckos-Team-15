@@ -12,9 +12,7 @@ window.onload = function () {
 function getDateTime() {
 
     var currentDate = new Date();
-    // console.log(currentDate)
-
-
+    
     var day = currentDate.getDay();
     var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -29,12 +27,11 @@ function getDateTime() {
 
     var fullDate = dayNames[day] + " " + monthNames[month] + " " + date + ", " + year;
 
-
     var dayName = document.querySelectorAll('.weather-day')
     for (var i = 0; i <= 4; i++) {
 
         dayName[i].innerHTML = dayNames[day];
-
+        //restart at the beginning of the monthName array for a new week
         if (day < 6) {
             day += 1;
         } else if (day === 6) {
@@ -59,8 +56,6 @@ function getDateTime() {
 
     var time = hour + ":" + minutes;
 
-    //I think we can set this to hour instead of time, and parsing it later
-    currentTime = time;
 
     document.querySelector('.date').textContent = fullDate;
     document.querySelector('.time').textContent = time;
@@ -257,6 +252,7 @@ function closeTasks() {
     document.querySelector('.feature-tasks').style.right = '-30rem';
 }
 
+var taskList = document.getElementById("taskList");
 
 function plus() {
 
@@ -264,8 +260,9 @@ function plus() {
     var inputValue = document.getElementById("userInput").value;
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
+
     if (inputValue === '') {
-        alert("You must write something!");
+        alert("Please enter a task");
     } else {
         document.getElementById("taskList").appendChild(li);
     }
@@ -429,39 +426,32 @@ function getForecast() {
 }
 
 
-// getWeather();
-
 
 var dailyHighs = [];
 var dailyImg=[];
 var dailyDesc=[];
-    
 var dailyLows = [];
 
 
 function getHighLowTemp(data) {
-    // to find the high and low, shift through the list and 
-    // and search for the max and min temps for that day, then display data.
 
-    //cycle through each day of the forecast 
-    
-    for (var j = 0; j < 33; j+= 8) {
+    var listLength = data.list.length
+    var loopStart = listLength - 32;
 
-        //holds values of the 8 iterations
+    //cycle through each day of 5 day forecast 
+    for (var j = loopStart; j < listLength; j+= 8) {
+
+        //holds values for each item type from the set of 8 items in the array
         var maxList = [];
         var descList = [];
         var imgList = [];
-        
         var minList = [];
-        
 
-        //cycle through
+        //For each day/ 24 hrs, capture the max and min values
         for (var i = 0; i <= 7; i++) {
             var loop = i + j;
-
-            console.log(loop);
             
-            //will hold the max temp for this iteration
+            //will hold the max temp, desc, image for this iteration
             var maxNum = data.list[loop].main.temp_max;
             maxList.push(maxNum);
 
@@ -471,48 +461,37 @@ function getHighLowTemp(data) {
             var image = data.list[loop].weather[0].id;
             imgList.push(image);
 
-
-
             //will hold the min temp for this iteration
             var minNum = data.list[loop].main.temp_min;
             minList.push(minNum);
             
         }
-
-        console.log(maxList);
-        console.log(minList);
     
-        //hold highest temperature among  8 entries
+        //find highest temperature in day among 8 items
         var tempHigh = Math.max(...maxList);
 
         //what is the index of the hightemp in the maxList
         var index = maxList.indexOf(tempHigh);
-        console.log(index);
         
         //what is the image associated with the highest temp
         var imgHigh = imgList[index];
-        console.log(imgHigh);
 
         //what is the descritpion associated with the highest temp
         var descHigh = descList[index];
-        console.log(descHigh);
 
-        console.log(tempHigh);
+        //find lowest temperature within the day
+        var tempLow = Math.min(...minList);
+        
+        //add items to display in UI into array
         dailyHighs.push(tempHigh);
         dailyImg.push(imgHigh);
         dailyDesc.push(descHigh);
+        dailyLows.push(tempLow);
 
-
-        //need to reset teh var for next loop so they are not included in next batch?
+        //need to reset the var for next loop so they are not included in next batch
         maxList=[];
         descList = [];
         imgList = [];
-
-
-        //hold lowest temperature among  8 entries
-        var tempLow = Math.min(...minList);
-        console.log(tempLow);
-        dailyLows.push(tempLow);
         minList=[];
     }
 
@@ -539,18 +518,16 @@ function updateForecast() {
         // var weatherIcon = "wi-owm-" + icon;
         // var imgUrl = "<i class='wi " + weatherIcon + "'></i>"
 
-        iconUI[i].innerHTML = "<i class='wi " + "wi-owm-" + dailyImg[i+1] + "'></i>";
+        iconUI[i].innerHTML = "<i class='wi " + "wi-owm-" + dailyImg[i] + "'></i>";
         
         //adding 1 so we get the forecast for tomorrow first
-        descUI[i].innerHTML = dailyDesc[i+1];
-        highUI[i].innerHTML = 'H:' + Math.round(dailyHighs[i+1]) + "&#176;";
-        lowUI[i].innerHTML = 'L:' + Math.round(dailyLows[i+1]) + "&#176;";
+        descUI[i].innerHTML = dailyDesc[i];
+        highUI[i].innerHTML = 'H:' + Math.round(dailyHighs[i]) + "&#176;";
+        lowUI[i].innerHTML = 'L:' + Math.round(dailyLows[i]) + "&#176;";
         
 
     }
 
 }
-    
-
 
 
