@@ -180,6 +180,11 @@ var musicClicked = false;
 var title = playlist[currentSong].name;
 var artist = playlist[currentSong].artist;
 
+
+song.onended = function(){
+    next();
+}
+updateTitle();
 function playAudio() {
 
     updateTitle();
@@ -187,10 +192,12 @@ function playAudio() {
 
         playing = false;
         pauseMusic();
+        
 
     } else {
         playing = true;
-        playMusic();
+        playMusic(); 
+        
     }
 
 
@@ -255,8 +262,8 @@ function closeTasks() {
 var taskList = document.getElementById("taskList");
 
 function plus() {
-
     var li = document.createElement("li");
+
     var inputValue = document.getElementById("userInput").value;
     var t = document.createTextNode(inputValue);
     li.appendChild(t);
@@ -274,6 +281,9 @@ function plus() {
     span.appendChild(txt);
     li.appendChild(span);
 
+
+
+
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function () {
             var div = this.parentElement;
@@ -281,6 +291,8 @@ function plus() {
         }
     }
 };
+
+
 
 
 var myNodelist = document.getElementsByClassName("task");
@@ -291,14 +303,18 @@ for (i = 0; i < myNodelist.length; i++) {
     span.className = "fas fa-trash-alt";
     span.appendChild(txt);
     myNodelist[i].appendChild(span);
+    store();
+
 }
+
 
 var close = document.getElementsByClassName("fas fa-trash-alt");
 var i;
 for (i = 0; i < close.length; i++) {
     close[i].onclick = function () {
-        var div = this.parentElement;
-        div.style.display = "none";
+        // var div = this.parentElement;
+        // div.style.display = "none";
+        close.parentNode.removeChild(close);
     }
 }
 
@@ -352,19 +368,19 @@ navigator.geolocation.getCurrentPosition(function (position) {
 
 
 function getWeather() {
-    console.log(lat);
-    console.log(long);
+    // console.log(lat);
+    // console.log(long);
     var url = 'https://api.openweathermap.org/data/2.5/weather?' + 'lat=' + lat + '&lon=' + long + '&appid=' + appid + '&units=imperial';
     
 
 
     var req = new Request(url);
-    console.log(url);
+    // console.log(url);
 
     fetch(req)
         .then((resp) => resp.json())
         .then(function (dataCurrent) {
-            console.log(dataCurrent);
+            //  console.log(dataCurrent); 
 
             var city = dataCurrent.name;
             var currentTemp = dataCurrent.main.temp;
@@ -377,11 +393,11 @@ function getWeather() {
             var weatherIcon = "wi-owm-" + icon;
             var imgUrl = "<i class='wi " + weatherIcon + "'></i>"
 
-            console.log(currentTemp);
-            console.log(currentMax);
-            console.log(currentMin);
-            console.log(weatherIcon);
-            console.log(description);
+            // console.log(currentTemp);
+            // console.log(currentMax);
+            // console.log(currentMin);
+            // console.log(weatherIcon);
+            // console.log(description);
 
             var cityName = document.querySelectorAll('.city-name')
 
@@ -409,18 +425,18 @@ function getForecast() {
     var url = 'https://api.openweathermap.org/data/2.5/forecast?' + 'lat=' + lat + '&lon=' + long + '&appid=' + appid + '&units=imperial';
 
     var req = new Request(url);
-    console.log(url);
+    // console.log(url);
 
     fetch(req)
         .then((resp) => resp.json())
         .then(function (data) {
-            console.log(data);
+             //console.log(data);
 
             var city = data.city.name;
 
             getHighLowTemp(data);
             updateForecast();
-
+            
 
         });
 }
@@ -514,13 +530,9 @@ function updateForecast() {
     
     
     for (var i = 0; i <= 3; i++) {
-        
-        // var weatherIcon = "wi-owm-" + icon;
-        // var imgUrl = "<i class='wi " + weatherIcon + "'></i>"
 
         iconUI[i].innerHTML = "<i class='wi " + "wi-owm-" + dailyImg[i] + "'></i>";
-        
-        //adding 1 so we get the forecast for tomorrow first
+       
         descUI[i].innerHTML = dailyDesc[i];
         highUI[i].innerHTML = 'H:' + Math.round(dailyHighs[i]) + "&#176;";
         lowUI[i].innerHTML = 'L:' + Math.round(dailyLows[i]) + "&#176;";
@@ -529,5 +541,3 @@ function updateForecast() {
     }
 
 }
-
-
